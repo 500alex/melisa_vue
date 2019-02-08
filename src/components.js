@@ -1,11 +1,11 @@
-import Counter from './components/counter.vue'
+import counter from './components/counter.vue'
 import AppComp from './components/app-comp.vue'
 export default function (Vue) {
    // Vue.use(callout);
 
     Vue.component(
         'counter',
-        Counter
+        counter
     );
     Vue.component(
         'myApp',

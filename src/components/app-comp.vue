@@ -1,9 +1,8 @@
-<template >
-    <div>
-        <h4>App</h4>
-
-    </div>
-
+<template lang="pug">
+    div
+        h4 Main App
+        counter
+        <router-view></router-view>
 </template>
 
 <script>

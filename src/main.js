@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import router from './router'
+import store from './store/index.js'
 
 Vue.use(Vuetify);
 import componet from './components.js';
@@ -23,6 +24,7 @@ import './css/style.scss'
 var app = new Vue({
     el: '#app',
     router,
+    store,
     data: {
         message: 'hello'
     }
