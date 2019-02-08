@@ -1,5 +1,5 @@
-<template>
-    <h3>Counter</h3>
+<template lang="pug">
+    h3 Counter
 </template>
 
 <script>

@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
-import counter from './components/counter.vue'
+import 'vuetify/dist/vuetify.min.css'
+import router from './router'
 
-import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
-
-Vue.use(Vuetify)
+Vue.use(Vuetify);
+import componet from './components.js';
+componet(Vue);
 
 import io from 'socket.io-client';
 
@@ -21,11 +22,9 @@ import './css/style.scss'
 
 var app = new Vue({
     el: '#app',
+    router,
     data: {
         message: 'hello'
-    },
-    components: {
-        counter
     }
 });
 

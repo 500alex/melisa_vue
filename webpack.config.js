@@ -36,6 +36,13 @@ module.exports = {
                 })
             },
             {
+                test: /\.pug$/,
+                loader: "pug-plain-loader",
+                options: {
+                    pretty: true
+                }
+            },
+            {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
