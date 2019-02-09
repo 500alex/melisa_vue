@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import contact from './pages/contact.vue';
+import index from './pages/index.vue';
 
 
 Vue.use(VueRouter);
@@ -8,13 +8,13 @@ Vue.use(VueRouter);
 
 export default new VueRouter({
     linkActiveClass: "active",
-    // mode: 'history',
+    mode: 'history',
     routes: [
         {
-            path: '/contact',
-            name: 'contact',
-            component: contact
-        }
+            path: '/',
+            name: 'index',
+            component: index
+        },
     ],
 
 })

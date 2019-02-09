@@ -1,7 +1,10 @@
 <template lang="pug">
     div
-        h3 Counter
+        h3.primary Counter
         div {{counter}}
+
+
+</template>
 
 </template>
 
@@ -10,7 +13,7 @@
         name: "app",
         data () {
             return {
-                msg: 'HEllo'
+                msg: 'HEllo',
             }
         },
         computed: {

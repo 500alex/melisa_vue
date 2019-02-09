@@ -1,10 +1,21 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import colors from 'vuetify/es5/util/colors'
 import router from './router'
 import store from './store/index.js'
+import 'babel-polyfill'
 
-Vue.use(Vuetify);
+Vue.use(Vuetify,{
+    options: {
+        customProperties: true
+    },
+    theme: {
+        primary: colors.red.darken1, // #E53935
+        secondary: colors.red.lighten4, // #FFCDD2
+        accent: '#82B1FF',
+    }
+});
 import componet from './components.js';
 componet(Vue);
 
