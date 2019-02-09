@@ -3,9 +3,6 @@
         h3.primary Counter
         div {{counter}}
 
-
-</template>
-
 </template>
 
 <script>

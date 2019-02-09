@@ -1,13 +1,13 @@
 <template lang="pug">
     div
-        div.accent Карусель
+        div Карусель
         v-carousel
             v-carousel-item( v-for="(item,i) in items", :key="i", :src="item.src")
 </template>
 
 <script>
     export default {
-        name: "main",
+        name: "myindex",
         data (){
             return {
                 items: [

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import index from './pages/index.vue';
+import myindex from './pages/myindex.vue';
 
 
 Vue.use(VueRouter);
@@ -12,8 +12,8 @@ export default new VueRouter({
     routes: [
         {
             path: '/',
-            name: 'index',
-            component: index
+            name: 'myindex',
+            component: myindex
         },
     ],
 
