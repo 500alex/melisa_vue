@@ -1,5 +1,8 @@
-<template>
-    <h3>Counter</h3>
+<template lang="pug">
+    div
+        h3 Counter
+        div {{counter}}
+
 </template>
 
 <script>
@@ -8,6 +11,11 @@
         data () {
             return {
                 msg: 'HEllo'
+            }
+        },
+        computed: {
+            counter () {
+                return this.$store.state.counter.name
             }
         }
     }
