@@ -7,6 +7,7 @@ import router from './router'
 import store from './store/index.js'
 import 'babel-polyfill'
 
+
 Vue.use(Vuetify,{
     iconfont: 'md', // 'md' || 'mdi' || 'fa' || 'fa4'
     options: {
