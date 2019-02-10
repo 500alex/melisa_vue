@@ -1,6 +1,6 @@
 <template lang="pug">
     div
-        //header
+        myheader
         //content
         <router-view></router-view>
         //content

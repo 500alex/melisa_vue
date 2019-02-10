@@ -17,6 +17,7 @@
     "pug-loader": "^2.4.0",
     "socket.io": "^2.2.0",
     "socket.io-client": "^2.2.0",
+    "swiper": "^4.4.6",
     "vue": "^2.5.22",
     "vue-loader": "^15.6.2",
     "vue-router": "^3.0.2",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
+    "@fortawesome/fontawesome-free": "^5.7.1",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",

@@ -1,17 +1,19 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
+//import 'vuetify/dist/vuetify.min.css'
 import colors from 'vuetify/es5/util/colors'
+// import '@fortawesome/fontawesome-free/css/all.css'
 import router from './router'
 import store from './store/index.js'
 import 'babel-polyfill'
 
 Vue.use(Vuetify,{
+    iconfont: 'md', // 'md' || 'mdi' || 'fa' || 'fa4'
     options: {
         customProperties: true
     },
     theme: {
-        primary: colors.red.darken1, // #E53935
+        primary: colors.indigo.darken-4, //
         secondary: colors.red.lighten4, // #FFCDD2
         accent: '#82B1FF',
     }
