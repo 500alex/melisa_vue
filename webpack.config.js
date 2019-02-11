@@ -27,6 +27,12 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
+                exclude: /node_modules\/(?!(dom7|swiper)\/).*/,
+                query: {
+                    presets: ['es2016', 'es2015'],
+                    comments: false,
+                    plugins: ['babel-plugin-transform-runtime']
+                }
             },
             {
                 test: /\.scss$/,

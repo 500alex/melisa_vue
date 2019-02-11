@@ -12,6 +12,9 @@
                 v-flex
                     div.swipper-slider
                         swipper
+                            .swiper-slide.dance-item(v-for="(item,index) in 4", :key="index") Slide {{index}}
+
+
         v-container
             v-layout
                 v-flex
@@ -69,7 +72,7 @@
                                 v-list-tile-action-text Контакты
                     v-flex(xs12, sm3)
                         v-list
-                            v-list-tile(v-for="item in 6")
+                            v-list-tile(v-for="(item,index) in 6", :key="index")
                                 v-list-tile-action-text Контакты
                     v-flex(xs12, sm3)
 
@@ -108,8 +111,7 @@
 
 <style scoped lang="scss">
     .swipper-slider {
-        height: 100px;
-        border: 1px solid #cecece;
+
     }
     .dance-type {
         margin: 10px;
