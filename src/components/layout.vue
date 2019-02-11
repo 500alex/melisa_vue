@@ -36,7 +36,9 @@
                     @click="drawer = !drawer"
                     class="hidden-md-and-up"
             ></v-toolbar-side-icon>
-            <span class="title ml-3 mr-5">Melisa</span>
+            <span class="title ml-3 mr-5">
+                <router-link :to="'/'">Melisa</router-link>
+            </span>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">
                 <v-btn

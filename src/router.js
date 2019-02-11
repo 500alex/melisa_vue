@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import p_index from './pages/p_index.vue';
+import Home from './pages/Home.vue';
+import Contact from './pages/Contact.vue'
 
 
 Vue.use(VueRouter);
@@ -12,8 +13,13 @@ export default new VueRouter({
     routes: [
         {
             path: '/',
-            name: 'p_index',
-            component: p_index
+            name: 'home',
+            component: Home
+        },
+        {
+            path: '/contact',
+            name: 'contact',
+            component: Contact
         },
     ],
 
