@@ -9,6 +9,15 @@ export default new Vuex.Store({
         counter
     },
     state: {
-
+        links: [
+            {text:'Контакты',icon: 'person', url: '/contact'},
+            {text:' Магазин',icon: 'person', url: '/shop'},
+            {text:'Выступления',icon: 'person', url: '/video'}
+        ]
+    },
+    getters: {
+        getLinks (state) {
+            return  state.links
+        }
     }
 })

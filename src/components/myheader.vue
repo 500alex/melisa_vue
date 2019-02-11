@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar color="primary">
+    <v-toolbar color="primary" app absolute clipped-left>
         <v-toolbar-side-icon class="hidden-md-and-up"></v-toolbar-side-icon>
 
         <v-toolbar-title>Melisa</v-toolbar-title>

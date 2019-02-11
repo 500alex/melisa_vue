@@ -1,5 +1,5 @@
 <template lang="pug">
-    div
+    div#index_page
         v-carousel
             v-carousel-item( v-for="(item,i) in items", :key="i", :src="item.src")
         V-container
@@ -53,7 +53,7 @@
                     v-flex(sm3)
                       div.font-weight-black Новости
                       a(href="#") Смотреть все
-                    v-flex(v-for="item in 3" sm3)
+                    v-flex(v-for="(item,index) in 3", :key="index" sm3)
                         v-list
                             v-list-tile-content
                                 v-list-tile-title Изменение расписание группы 623
