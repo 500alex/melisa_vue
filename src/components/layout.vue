@@ -28,6 +28,40 @@
 
                     </v-list-tile>
                     <v-divider></v-divider>
+                    <!--<v-expansion-panel>-->
+                        <!--<v-expansion-panel-content>-->
+                            <!--<div slot="header">Направления</div>-->
+                            <!--<v-list>-->
+                                <!--<v-list-tile-->
+                                        <!--v-for="(trend,index) in trends"-->
+                                        <!--:key="index"-->
+                                        <!--:to="trend.url"-->
+                                <!--&gt;-->
+                                    <!--<v-list-tile-title v-text="trend.text"></v-list-tile-title>-->
+                                <!--</v-list-tile>-->
+                            <!--</v-list>-->
+
+                        <!--</v-expansion-panel-content>-->
+                    <!--</v-expansion-panel>-->
+
+
+                    <v-list-group
+
+
+                            prepend-icon="account_circle"
+                            no-action
+                    >
+                        <v-list-tile slot="activator">
+                            <v-list-tile-content>
+                                <v-list-tile-title>Направления</v-list-tile-title>
+                            </v-list-tile-content>
+                        </v-list-tile>
+                        <v-list v-for="(trend,i) in trends" :key="i" >
+                            <v-list-tile @click="">{{trend.text}}</v-list-tile>
+                        </v-list>
+
+                        </v-list-group>
+
                 </v-list>
             </v-list>
         </v-navigation-drawer>
@@ -41,6 +75,22 @@
             </span>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">
+                <v-menu :nudge-width="100">
+                    <v-toolbar-title slot="activator">
+                        <span>Направления</span>
+                        <v-icon dark>arrow_drop_down</v-icon>
+                    </v-toolbar-title>
+
+                    <v-list>
+                        <v-list-tile
+                                v-for="(trend,index) in trends"
+                                :key="index"
+                                :to="trend.url"
+                        >
+                            <v-list-tile-title v-text="trend.text"></v-list-tile-title>
+                        </v-list-tile>
+                    </v-list>
+                </v-menu>
                 <v-btn
                     flat
                     v-for="(link,index) in links"
@@ -80,6 +130,9 @@
         computed: {
             links (){
                 return this.$store.getters.getLinks;
+            },
+            trends () {
+                return this.$store.getters.getTrends;
             }
         }
     }

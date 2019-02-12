@@ -11,13 +11,10 @@ import 'babel-polyfill'
 
 Vue.use(Vuetify,{
     iconfont: 'md', // 'md' || 'mdi' || 'fa' || 'fa4'
-    options: {
-        customProperties: true
-    },
     theme: {
-        primary: colors.indigo.darken-4, //
+        primary: colors.red.darken1, // #E53935
         secondary: colors.red.lighten4, // #FFCDD2
-        accent: '#82B1FF',
+        accent: colors.indigo.base // #3F51B5
     }
 });
 import componet from './components.js';

@@ -10,14 +10,22 @@ export default new Vuex.Store({
     },
     state: {
         links: [
+            {text:'Альбомы',icon: 'person', url: '/albums'},
+            {text:'Новости',icon: 'person', url: '/news'},
             {text:'Контакты',icon: 'person', url: '/contact'},
-            {text:' Магазин',icon: 'person', url: '/shop'},
-            {text:'Выступления',icon: 'person', url: '/video'}
+        ],
+        trends: [
+            {text:'Бачата', url:'/trend'},
+            {text:'Сальса', url:'/trend'},
+            {text:'Танго', url:'/trend'}
         ]
     },
     getters: {
         getLinks (state) {
             return  state.links
+        },
+        getTrends (state){
+            return state.trends
         }
     }
 })
