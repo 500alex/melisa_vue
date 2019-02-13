@@ -57,7 +57,7 @@
                             </v-list-tile-content>
                         </v-list-tile>
                         <v-list v-for="(trend,i) in trends" :key="i" >
-                            <v-list-tile @click="">{{trend.text}}</v-list-tile>
+                            <v-list-tile :to="'/trend/'+ trend.url">{{trend.text}}</v-list-tile>
                         </v-list>
 
                         </v-list-group>
@@ -85,7 +85,7 @@
                         <v-list-tile
                                 v-for="(trend,index) in trends"
                                 :key="index"
-                                :to="trend.url"
+                                :to="'/trend/'+ trend.url"
                         >
                             <v-list-tile-title v-text="trend.text"></v-list-tile-title>
                         </v-list-tile>

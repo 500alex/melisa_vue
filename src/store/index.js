@@ -15,9 +15,14 @@ export default new Vuex.Store({
             {text:'Контакты',icon: 'person', url: '/contact'},
         ],
         trends: [
-            {text:'Бачата', url:'/trend'},
-            {text:'Сальса', url:'/trend'},
-            {text:'Танго', url:'/trend'}
+            {text:'Бачата', url:'bachata'},
+            {text:'Сальса', url:'salsa'},
+            {text:'Танго', url:'tango'}
+        ],
+        news: [
+            {text:'новость 1', id: 0},
+            {text:'новость 2', id: 1},
+            {text:'новость 3', id: 2},
         ]
     },
     getters: {

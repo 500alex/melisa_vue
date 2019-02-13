@@ -4,6 +4,7 @@ import Home from './pages/Home.vue';
 import Contact from './pages/Contact.vue'
 import Albums from './pages/Albums.vue'
 import News from './pages/News.vue'
+import New from './pages/New.vue'
 import Trend from './pages/Trend.vue'
 
 
@@ -36,7 +37,12 @@ export default new VueRouter({
             component: News
         },
         {
-            path: '/trend',
+            path: '/new/:id',
+            name: 'new',
+            component: New
+        },
+        {
+            path: '/trend/:id',
             name: 'trend',
             component: Trend
         },
