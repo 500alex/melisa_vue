@@ -56,8 +56,12 @@
                                 <v-list-tile-title>Направления</v-list-tile-title>
                             </v-list-tile-content>
                         </v-list-tile>
-                        <v-list v-for="(trend,i) in trends" :key="i" >
-                            <v-list-tile :to="'/trend/'+ trend.url">{{trend.text}}</v-list-tile>
+                        <v-list >
+                            <v-list-tile
+                                    :to="'/trend/'+ trend.url"
+                                    v-for="(trend,i) in trends"
+                                    :key="i"
+                            >{{trend.text}}</v-list-tile>
                         </v-list>
 
                         </v-list-group>
@@ -132,7 +136,7 @@
                 return this.$store.getters.getLinks;
             },
             trends () {
-                return this.$store.getters.getTrends;
+                return this.$store.getters['trends/getTrends'];
             }
         }
     }
