@@ -5,6 +5,7 @@ import Contact from './pages/Contact.vue'
 import Albums from './pages/Albums.vue'
 import News from './pages/News.vue'
 import New from './pages/New.vue'
+import NewFull from './pages/newFull.vue'
 import Trend from './pages/Trend.vue'
 
 
@@ -39,7 +40,14 @@ export default new VueRouter({
         {
             path: '/new/:id',
             name: 'new',
-            component: New
+            component: New,
+            children: [
+                {
+                path: 'full',
+                name: 'newFull',
+                component: NewFull
+                }
+            ]
         },
         {
             path: '/trend/:id',
