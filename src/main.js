@@ -11,6 +11,10 @@ import 'babel-polyfill'
 
 Vue.use(Vuetify,{
     iconfont: 'md', // 'md' || 'mdi' || 'fa' || 'fa4'
+    // icons: {
+    //     'cancel': 'fas fa-ban',
+    //     'menu': 'fas fa-tty'
+    // },
     theme: {
         primary: colors.red.darken1, // #E53935
         secondary: colors.red.lighten4, // #FFCDD2
