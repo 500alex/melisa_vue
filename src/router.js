@@ -54,6 +54,12 @@ export default new VueRouter({
             name: 'trend',
             component: Trend
         },
+        {
+            path: '*',
+            redirect: {
+                name: 'home'
+            }
+        }
     ],
 
 })
