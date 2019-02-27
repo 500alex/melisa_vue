@@ -5,29 +5,47 @@ const path = require('path');
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const mongoose = require('mongoose');
+var mariadb = require('mariadb');
 
-mongoose.connect('mongodb://localhost/one', { useNewUrlParser: true })
-    .then(()=>{
-        console.log('Mongo has started!');
+mariadb.createConnection({ // Open a new connection
+    user: 'root',
+    host: '127.0.0.1',
+    port: 5000
+})
+    .then(conn => {
+        conn.query('SELECT "Hello world!" as my_message') // Execute a query
+            .then(result => { // Print the results
+                for (row of result) {
+                    console.log(row)
+                }
+            })
+            .then(conn.destroy())
+
+        // Close the connection
     })
-    .catch(e => console.log(e));
 
-require('../model/news');
-
-const News = mongoose.model('news');
-
-const news = new News({
-    label: 'label1',
-    text: 'text1'
-});
+// mongoose.connect('mongodb://localhost/one', { useNewUrlParser: true })
+//     .then(()=>{
+//         console.log('Mongo has started!');
+//     })
+//     .catch(e => console.log(e));
+//
+// require('../model/news');
+//
+// const News = mongoose.model('news');
+//
+// const news = new News({
+//     label: 'label1',
+//     text: 'text1'
+// });
 
 // news.save().then((data)=>{
 //     console.log(data)
 // }).catch(e=>console.log(e))
 
-News.find({}).then(news=>{
-    console.log(news)
-})
+// News.find({}).then(news=>{
+//     console.log(news)
+// })
 
 
 //app.use(express.static(path.join(__dirname, '../www')));
