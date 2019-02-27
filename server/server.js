@@ -4,25 +4,25 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 var mariadb = require('mariadb');
 
-mariadb.createConnection({ // Open a new connection
-    user: 'root',
-    host: '127.0.0.1',
-    port: 5000
-})
-    .then(conn => {
-        conn.query('SELECT "Hello world!" as my_message') // Execute a query
-            .then(result => { // Print the results
-                for (row of result) {
-                    console.log(row)
-                }
-            })
-            .then(conn.destroy())
+mariadb
+    .createConnection({
+        host: 'localhost',
+        ssl: false,
+        user: 'root',
+        password:'12345',
 
-        // Close the connection
-    })
+    }).then(conn => {
+    conn.query('SELECT "Hello world!" as my_message') // Execute a query
+        .then(result => { // Print the results
+            for (row of result) {
+                console.log(row)
+            }
+        })
+
+})
 
 // mongoose.connect('mongodb://localhost/one', { useNewUrlParser: true })
 //     .then(()=>{
