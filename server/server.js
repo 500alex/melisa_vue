@@ -13,9 +13,10 @@ mariadb
         ssl: false,
         user: 'root',
         password:'12345',
+        database:'melis'
 
     }).then(conn => {
-    conn.query('SELECT "Hello world!" as my_message') // Execute a query
+    conn.query('SELECT * FROM news') // Execute a query
         .then(result => { // Print the results
             for (row of result) {
                 console.log(row)
