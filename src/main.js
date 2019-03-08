@@ -27,6 +27,7 @@ componet(Vue);
 import io from 'socket.io-client';
 
 //css
+import './css/variables.scss'
 import './css/style.scss'
 
 // const socket = io('http://localhost:5000');

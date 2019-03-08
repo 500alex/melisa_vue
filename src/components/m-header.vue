@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mb-1">
         <v-navigation-drawer
                 v-model="drawer"
                 fixed
@@ -51,13 +51,13 @@
                 </v-list>
             </v-list>
         </v-navigation-drawer>
-        <v-toolbar color="amber" app absolute clipped-left>
+        <v-toolbar color="blue-grey darken-4" app absolute dark clipped-left class="elevation-0">
             <v-toolbar-side-icon
                     @click="drawer = !drawer"
                     class="hidden-md-and-up"
             ></v-toolbar-side-icon>
-            <span class="title ml-3 mr-5">
-                <router-link :to="'/'">Melisa</router-link>
+            <span class="title ml-3 mr-5 logo">
+                <router-link :to="'/'">MELISA</router-link>
             </span>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">
@@ -118,6 +118,11 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+    span {
+        a {
+            font-weight: bold;
+            text-decoration: none;
+        }
+    }
 </style>

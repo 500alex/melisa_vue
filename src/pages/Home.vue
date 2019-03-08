@@ -1,8 +1,9 @@
 <template lang="pug">
     div#index_page
-        v-carousel
-            v-carousel-item( v-for="(item,i) in items", :key="i", :src="item.src")
-        V-container
+        //m-carousel
+        m-promo
+        m-direction
+        v-container
             v-layout
                 v-flex
                     h4.display-2.font-weight-bold.text-sm-center.indigo--text.darken-4 Недавние выступления!
@@ -14,22 +15,8 @@
                         swipper
                             .swiper-slide.dance-item(v-for="(item,index) in 4", :key="index") Slide {{index}}
 
+        m-teacher
 
-        v-container
-            v-layout
-                v-flex
-                    div.text-xs-center
-                        v-btn.yellow.accent-4.black--text.font-weight-bold(round, color="primary" ) Rounded Button
-                    h4.display-2.font-weight-bold.text-sm-center.indigo--text.darken-4 Направления
-                    h5.headline.text-sm-center танцевального спортивного клуба "Мелиса"
-        v-container
-            v-layout(row ,wrap, xs12)
-                v-flex.dance-type(v-for="(item,index) in 6", :key="index", xs-6)
-                    v-card
-                        v-img(src="https://cdn.vuetifyjs.com/images/cards/desert.jpg", aspect-ratio="2.75")
-                        v-card-title
-                            div
-                            h3.headline.mb-0 Kangaroo Valley Safari
         v-container
             v-layout(row, wrap, xs12)
                 v-flex(xs12 sm6)
@@ -61,58 +48,19 @@
                             v-list-tile-content
                                 v-list-tile-title Изменение расписание группы 623
                                 v-list-tile-sub-title Если у вас есть фото или видео материалы, можете прислать их на почту example@ex.ru
-        v-container(fluid indigo darken-4)
-            v-container
-                v-layout(wrap, row)
-                    v-flex(xs12, sm3)
-                        div.font-weight-black Melisa
-                    v-flex(xs12, sm3)
-                        v-list
-                            v-list-tile(v-for="(item,index) in 6", :key="index")
-                                v-list-tile-action-text Контакты
-                    v-flex(xs12, sm3)
-                        v-list
-                            v-list-tile(v-for="(item,index) in 6", :key="index")
-                                v-list-tile-action-text Контакты
-                    v-flex(xs12, sm3)
-
-
-
-
-
-
-
 
 </template>
 
 <script>
+    import MCarousel from "../components/m-carousel";
     export default {
         name: "home",
-        data (){
-            return {
-                items: [
-                    {
-                        src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
-                    },
-                    {
-                        src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
-                    },
-                    {
-                        src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
-                    },
-                    {
-                        src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
-                    }
-                ]
-            }
-        }
+        components: {MCarousel},
     }
 </script>
 
 <style scoped lang="scss">
-    .swipper-slider {
 
-    }
     .dance-type {
         margin: 10px;
     }

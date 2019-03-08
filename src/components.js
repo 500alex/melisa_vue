@@ -1,9 +1,14 @@
 import counter from './components/counter.vue'
 import layout from './components/layout.vue'
+import swipper from './components/swipper.vue'
+import topBtn from './components/top-btn.vue'
 import mHeader from './components/m-header.vue'
 import mfooter from './components/m-footer.vue'
-import topBtn from './components/top-btn.vue'
-import swipper from './components/swipper.vue'
+import mCarousel from './components/m-carousel.vue'
+import mTeacher from './components/m-teacher.vue'
+import mPromo from './components/m-promo.vue'
+import mDirection from './components/m-direction.vue'
+
 export default function (Vue) {
    // Vue.use(callout);
 
@@ -16,8 +21,24 @@ export default function (Vue) {
         mHeader
     );
     Vue.component(
+        'm-teacher',
+        mTeacher
+    );
+    Vue.component(
+        'm-promo',
+        mPromo
+    );
+    Vue.component(
+        'm-direction',
+        mDirection
+    );
+    Vue.component(
         'm-footer',
         mfooter
+    );
+    Vue.component(
+        'm-carousel',
+        mCarousel
     );
     Vue.component(
         'top-btn',

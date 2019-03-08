@@ -10,7 +10,9 @@
                     tile
             >
                 <v-card-title class="blue-grey darken-4">
-                    <strong class="subheading">Melisa</strong>
+                    <span class="logo">
+                       <router-link :to="'/'">MELISA</router-link>
+                    </span>
 
                     <v-spacer></v-spacer>
 
