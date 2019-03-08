@@ -1,3 +1,17 @@
+.dance-type[data-v-5a90ec03] {
+  margin: 10px;
+}
+#keep
+.v-navigation-drawer__border {
+  display: none;
+}
+.btnToTop {
+  opacity: 0;
+  transition: all .5s;
+}
+.btnToTop.active {
+    opacity: 1;
+}
 
 .swiper-container {
     width: 100%;
@@ -20,13 +34,6 @@
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-}
-.dance-type[data-v-5a90ec03] {
-  margin: 10px;
-}
-#keep
-.v-navigation-drawer__border {
-  display: none;
 }
 body {
   font-family: "Roboto"; }

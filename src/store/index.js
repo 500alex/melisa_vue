@@ -12,9 +12,9 @@ export default new Vuex.Store({
     },
     state: {
         links: [
-            {text:'Альбомы',icon: 'person', url: '/albums'},
-            {text:'Новости',icon: 'person', url: '/news'},
-            {text:'Контакты',icon: 'person', url: '/contact'},
+            {text:'Альбомы',icon: 'style', url: '/albums'},
+            {text:'Новости',icon: 'mood', url: '/news'},
+            {text:'Контакты',icon: 'phone', url: '/contact'},
         ],
     },
     getters: {

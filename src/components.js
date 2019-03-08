@@ -1,6 +1,8 @@
 import counter from './components/counter.vue'
 import layout from './components/layout.vue'
-//import myheader from './components/myheader.vue'
+import mHeader from './components/m-header.vue'
+import mfooter from './components/m-footer.vue'
+import topBtn from './components/top-btn.vue'
 import swipper from './components/swipper.vue'
 export default function (Vue) {
    // Vue.use(callout);
@@ -9,10 +11,18 @@ export default function (Vue) {
         'layout',
         layout
     );
-    // Vue.component(
-    //     'myheader',
-    //     myheader
-    // );
+    Vue.component(
+        'm-header',
+        mHeader
+    );
+    Vue.component(
+        'm-footer',
+        mfooter
+    );
+    Vue.component(
+        'top-btn',
+        topBtn
+    );
     Vue.component(
         'swipper',
         swipper

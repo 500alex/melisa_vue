@@ -1,0 +1,123 @@
+<template>
+    <div>
+        <v-navigation-drawer
+                v-model="drawer"
+                fixed
+                clipped
+                class="grey lighten-4"
+                app
+                temporary
+        >
+            <v-list
+                    dense
+                    class="grey lighten-4"
+            >
+                <v-list>
+                    <v-list-tile
+                            v-for="(item,i) in links"
+                            :key="i"
+                            :to="item.url"
+                    >
+                        <v-list-tile-action>
+                            <v-icon>{{item.icon}}</v-icon>
+                        </v-list-tile-action>
+
+                        <v-list-tile-content>
+                            <v-list-tile-title v-text="item.text"></v-list-tile-title>
+                        </v-list-tile-content>
+
+                    </v-list-tile>
+                    <v-divider></v-divider>
+
+                    <v-list-group
+                            prepend-icon="account_circle"
+                            no-action
+                    >
+                        <v-list-tile slot="activator">
+                            <v-list-tile-content>
+                                <v-list-tile-title>Направления</v-list-tile-title>
+                            </v-list-tile-content>
+                        </v-list-tile>
+                        <v-list >
+                            <v-list-tile
+                                    :to="'/trend/'+ trend.url"
+                                    v-for="(trend,i) in trends"
+                                    :key="i"
+                            >{{trend.text}}</v-list-tile>
+                        </v-list>
+
+                    </v-list-group>
+
+                </v-list>
+            </v-list>
+        </v-navigation-drawer>
+        <v-toolbar color="amber" app absolute clipped-left>
+            <v-toolbar-side-icon
+                    @click="drawer = !drawer"
+                    class="hidden-md-and-up"
+            ></v-toolbar-side-icon>
+            <span class="title ml-3 mr-5">
+                <router-link :to="'/'">Melisa</router-link>
+            </span>
+            <v-spacer></v-spacer>
+            <v-toolbar-items class="hidden-sm-and-down">
+                <v-menu :nudge-width="100">
+                    <v-toolbar-title slot="activator">
+                        <span>Направления</span>
+                        <v-icon dark>arrow_drop_down</v-icon>
+                    </v-toolbar-title>
+
+                    <v-list>
+                        <v-list-tile
+                                v-for="(trend,index) in trends"
+                                :key="index"
+                                :to="'/trend/'+ trend.url"
+                        >
+                            <v-list-tile-title v-text="trend.text"></v-list-tile-title>
+                        </v-list-tile>
+                    </v-list>
+                </v-menu>
+                <v-btn
+                        flat
+                        v-for="(link,index) in links"
+                        :key="index"
+                        :to="link.url"
+                >
+                    <v-icon left>{{link.icon}}</v-icon>
+                    {{link.text}}
+                </v-btn>
+
+            </v-toolbar-items>
+            <v-btn icon>
+                <!--<v-icon>more_vert</v-icon>-->
+                <v-icon>android</v-icon>
+
+                <!--<i class="fas fa-phone"></i>-->
+                <!--<i class="fas fa-tty"></i>-->
+            </v-btn>
+        </v-toolbar>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: "m-header",
+        data (){
+            return {
+                drawer: null,
+            }
+        },
+        computed: {
+            links (){
+                return this.$store.getters.getLinks;
+            },
+            trends () {
+                return this.$store.getters['trends/getTrends'];
+            }
+        }
+    }
+</script>
+
+<style scoped>
+
+</style>

@@ -12,7 +12,7 @@ import 'babel-polyfill'
 Vue.use(Vuetify,{
     iconfont: 'md', // 'md' || 'mdi' || 'fa' || 'fa4'
     // icons: {
-    //     'cancel': 'fas fa-ban',
+    //     'album': 'fas fa-book-open',
     //     'menu': 'fas fa-tty'
     // },
     theme: {

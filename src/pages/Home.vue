@@ -5,7 +5,7 @@
         V-container
             v-layout
                 v-flex
-                    h4.display-2.font-weight-bold.text-sm-center.indigo--text.darken-4 Недавние выступления
+                    h4.display-2.font-weight-bold.text-sm-center.indigo--text.darken-4 Недавние выступления!
                     h5.headline.text-sm-center выпускников нашей школы
         v-container
             v-layout
