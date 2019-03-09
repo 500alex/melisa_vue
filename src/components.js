@@ -8,6 +8,8 @@ import mCarousel from './components/m-carousel.vue'
 import mTeacher from './components/m-teacher.vue'
 import mPromo from './components/m-promo.vue'
 import mDirection from './components/m-direction.vue'
+import mNews from './components/m-news.vue'
+import mPhoto from './components/m-photo.vue'
 
 export default function (Vue) {
    // Vue.use(callout);
@@ -37,8 +39,16 @@ export default function (Vue) {
         mfooter
     );
     Vue.component(
+        'm-photo',
+        mPhoto
+    );
+    Vue.component(
         'm-carousel',
         mCarousel
+    );
+    Vue.component(
+        'm-news',
+        mNews
     );
     Vue.component(
         'top-btn',

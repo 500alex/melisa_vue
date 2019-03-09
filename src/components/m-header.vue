@@ -123,6 +123,7 @@
         a {
             font-weight: bold;
             text-decoration: none;
+            font-size: 40px;
         }
     }
 </style>

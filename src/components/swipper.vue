@@ -14,7 +14,8 @@
 
 <script>
     export default {
-        name: "swipper"
+        name: "swipper",
+
     }
 </script>
 
