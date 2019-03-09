@@ -5,13 +5,15 @@
                 <h4 class="font-weight-medium text-uppercase text-xs-center mb-3 custom-header">Фотогалерея</h4>
                 <v-layout>
                     <v-flex>
-                        <div class="swipper-slider">
-                            <swipper>
-                                <div class="swiper-slide" v-for="(slide,i) in photoList" :key="i">
-                                    <img :src="slide.url">
-                                </div>
-                            </swipper>
-                        </div>
+                        <router-link :to="'/photo'">
+                            <div class="swipper-slider">
+                                <swipper>
+                                    <div class="swiper-slide" v-for="(slide,i) in photoList" :key="i">
+                                        <img :src="slide.url">
+                                    </div>
+                                </swipper>
+                            </div>
+                        </router-link>
                     </v-flex>
                 </v-layout>
             </v-container>
