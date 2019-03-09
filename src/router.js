@@ -7,6 +7,8 @@ import News from './pages/News.vue'
 import New from './pages/New.vue'
 import NewFull from './pages/newFull.vue'
 import Trend from './pages/Trend.vue'
+import Photo from './pages/photo.vue'
+import Video from './pages/video.vue'
 
 
 
@@ -31,6 +33,16 @@ export default new VueRouter({
             path: '/albums',
             name: 'albums',
             component: Albums
+        },
+        {
+            path: '/photo',
+            name: 'photo',
+            component: Photo
+        },
+        {
+            path: '/video',
+            name: 'video',
+            component: Video
         },
         {
             path: '/news',

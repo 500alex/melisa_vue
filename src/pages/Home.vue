@@ -4,21 +4,8 @@
         m-promo
         m-direction
         m-photo
-        <!--v-container-->
-            <!--v-layout-->
-                <!--v-flex-->
-                    <!--h4.display-2.font-weight-bold.text-sm-center.indigo&#45;&#45;text.darken-4 Недавние выступления!-->
-                    <!--h5.headline.text-sm-center выпускников нашей школы-->
-        <!--v-container-->
-            <!--v-layout-->
-                <!--v-flex-->
-                    <!--div.swipper-slider-->
-                        <!--swipper-->
-                            <!--.swiper-slide.dance-item(v-for="(item,index) in 4", :key="index") Slide {{index}}-->
-
         m-teacher
         m-news
-
 </template>
 
 <script>
