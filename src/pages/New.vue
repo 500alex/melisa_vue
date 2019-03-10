@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h4>Новость подробно</h4>
         <h3>New {{id}}</h3>
         <v-btn color="primary" @click="goNews">К списку новостей</v-btn>
         <!--Дочерний роут-->
