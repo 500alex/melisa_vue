@@ -10,6 +10,7 @@ import mPromo from './components/m-promo.vue'
 import mDirection from './components/m-direction.vue'
 import mNews from './components/m-news.vue'
 import mPhoto from './components/m-photo.vue'
+import VueGallery from 'vue-gallery';
 
 export default function (Vue) {
    // Vue.use(callout);
@@ -21,6 +22,10 @@ export default function (Vue) {
     Vue.component(
         'm-header',
         mHeader
+    );
+    Vue.component(
+        'gallery',
+        VueGallery
     );
     Vue.component(
         'm-teacher',

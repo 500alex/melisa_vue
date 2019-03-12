@@ -13,7 +13,8 @@ export default new Vuex.Store({
     },
     state: {
         links: [
-            {text:'Альбомы',icon: 'style', url: '/albums'},
+            {text:'Фото',icon: 'insert_photo', url: '/photo'},
+            {text:'Видео',icon: 'videocam', url: '/video'},
             {text:'Новости',icon: 'mood', url: '/news'},
             {text:'Контакты',icon: 'phone', url: '/contact'},
         ],

@@ -8,7 +8,7 @@
                         <v-card class="news-item elevation-0 ma-3" :to="'/new/' + news.id">
                             <div>
                                 <h3 class="headline">{{news.data}}</h3>
-                                <div class="news-item__description">{{news.text}}</div>
+                                <div class="news-item__description">{{news.shortDescription}}</div>
                             </div>
                         </v-card>
                     </v-flex>
