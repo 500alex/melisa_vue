@@ -1,13 +1,25 @@
 <template>
     <div>
+        <v-container>
+            <v-layout>
+                <v-flex>
+                    <div
+                        class="image"
+                        v-for="(image, i) in images"
+                        :key="i"
+                        @click="index = i"
+                        :style="{ backgroundImage: 'url(' + image + ')', width: '300px', height: '200px' }"
+                    ></div>
+                </v-flex>
+            </v-layout>
+            <v-layout>
+                <v-flex>
+                    <photo-folder></photo-folder>
+                </v-flex>
+            </v-layout>
+        </v-container>
         <gallery :images="images" :index="index" @close="index = null"></gallery>
-        <div
-                class="image"
-                v-for="(image, imageIndex) in images"
-                :key="imageIndex"
-                @click="index = imageIndex"
-                :style="{ backgroundImage: 'url(' + image + ')', width: '300px', height: '200px' }"
-        ></div>
+
     </div>
 </template>
 
