@@ -8,11 +8,11 @@
                         <div class="promo-block__text">Описание того что мы делаем</div>
                         <div class="promo-action">
                             <div>
-                                <v-btn round color="primary" dark :to="'/video'">Наше видео</v-btn>
+                                <v-btn round color="primary" dark :to="'/albums'">Альбомы</v-btn>
                             </div>
-                            <div>
-                                <v-btn round color="primary" dark :to="'/photo'">Наше фото</v-btn>
-                            </div>
+                            <!--<div>-->
+                                <!--<v-btn round color="primary" dark :to="'/photo'">Наше фото</v-btn>-->
+                            <!--</div>-->
                         </div>
                     </div>
                 </v-container>

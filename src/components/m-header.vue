@@ -88,13 +88,6 @@
                 </v-btn>
 
             </v-toolbar-items>
-            <v-btn icon>
-                <!--<v-icon>more_vert</v-icon>-->
-                <v-icon>android</v-icon>
-
-                <!--<i class="fas fa-phone"></i>-->
-                <!--<i class="fas fa-tty"></i>-->
-            </v-btn>
         </v-toolbar>
     </div>
 </template>

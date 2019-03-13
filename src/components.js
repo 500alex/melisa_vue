@@ -11,7 +11,7 @@ import mDirection from './components/m-direction.vue'
 import mNews from './components/m-news.vue'
 import mPhoto from './components/m-photo.vue'
 import VueGallery from 'vue-gallery';
-import photoFolder from './components/photo-folder';
+
 
 export default function (Vue) {
    // Vue.use(callout);
@@ -19,10 +19,6 @@ export default function (Vue) {
     Vue.component(
         'layout',
         layout
-    );
-    Vue.component(
-        'photoFolder',
-        photoFolder
     );
     Vue.component(
         'm-header',

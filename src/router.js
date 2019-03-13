@@ -6,8 +6,10 @@ import News from './pages/News.vue'
 import New from './pages/New.vue'
 import NewFull from './pages/newFull.vue'
 import Trend from './pages/Trend.vue'
-import Photo from './pages/photo.vue'
-import Video from './pages/video.vue'
+import Albums from './pages/albums.vue'
+import Album from './pages/album.vue'
+
+
 
 
 
@@ -29,14 +31,14 @@ export default new VueRouter({
             component: Contact
         },
         {
-            path: '/photo',
-            name: 'photo',
-            component: Photo
+            path: '/albums',
+            name: 'albums',
+            component: Albums
         },
         {
-            path: '/video',
-            name: 'video',
-            component: Video
+            path: '/album/:id',
+            name: 'album',
+            component: Album,
         },
         {
             path: '/news',
