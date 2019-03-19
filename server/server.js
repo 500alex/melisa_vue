@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const server = require('http').createServer(app);
-const io = require('socket.io')(server);
+//const io = require('socket.io')(server);
 // const mongoose = require('mongoose');
 var mariadb = require('mariadb');
 
