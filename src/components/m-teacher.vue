@@ -5,7 +5,7 @@
                 <h4 class="font-weight-medium text-uppercase text-xs-center mb-3 custom-header">Наш преподаватель</h4>
                 <v-layout wrap>
                     <v-flex class="xs12 md6">
-                      <v-img src="img/teacher.png"></v-img>
+                      <v-img src="../img/teacher.png"></v-img>
                     </v-flex>
                     <v-flex class="xs12 md6">
                         <v-list class="description-teacher">

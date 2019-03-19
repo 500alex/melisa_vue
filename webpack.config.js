@@ -1,13 +1,27 @@
 let path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+var HTMLWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
     entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, 'www/dist'),
-        filename: "main.js"
+        filename: '[name].[hash].js',
+    },
+    optimization: {
+     runtimeChunk: 'single',
+         splitChunks: {
+           cacheGroups: {
+                 vendor: {
+                       test: /[\\/]node_modules[\\/]/,
+                           name: 'vendors',
+                           chunks: 'all'
+                     }
+               }
+         }
     },
     mode: 'development',
     resolve: {
@@ -75,7 +89,11 @@ module.exports = {
     plugins: [
         // make sure to include the plugin!
         new VueLoaderPlugin(),
-        new ExtractTextPlugin('style.css')
+        new ExtractTextPlugin('[name]css/[hash].css'),
+        new CleanWebpackPlugin(),
+        new HTMLWebpackPlugin({
+            template: path.join(__dirname, './src/index.html')
+        })
     ],
 
 }

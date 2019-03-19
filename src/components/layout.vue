@@ -2,13 +2,6 @@
     <v-app id="keep">
         <m-header></m-header>
         <v-content>
-            <!--<v-container fluid fill-height pa-0 class="grey lighten-4">-->
-                <!--<v-layout justify-center align-center>-->
-                    <!--<v-flex style="background: #F2F2F4;">-->
-                        <!--<router-view></router-view>-->
-                    <!--</v-flex>-->
-                <!--</v-layout>-->
-            <!--</v-container>-->
             <router-view></router-view>
         </v-content>
 
