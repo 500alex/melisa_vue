@@ -9,7 +9,7 @@
                     </v-flex>
                     <v-flex class="xs12 md6">
                         <v-list class="description-teacher">
-                            <div class="custom-subheader">Савкина Елена Сергеевна</div>
+                            <div class="custom-subheader">Савинкина Елена Сергеевна</div>
                             <v-list-tile-content>
                                 <v-list-tile-title>Финалистка чемпионата мира</v-list-tile-title>
                                 <v-list-tile-sub-title>Германия 2011г</v-list-tile-sub-title>
