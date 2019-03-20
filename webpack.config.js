@@ -26,7 +26,8 @@ module.exports = {
     mode: 'development',
     resolve: {
         alias: {
-            'vue$': 'vue/dist/vue.esm.js'
+            'vue$': 'vue/dist/vue.esm.js',
+            '@': path.resolve(__dirname, 'src/')
         },
         extensions: ['*', '.js', '.vue', '.json']
     },
@@ -72,16 +73,24 @@ module.exports = {
             },
             {
                 test: /\.(gif|png|jpe?g|svg)$/i,
+                // use: [
+                //     'file-loader',
+                //     {
+                //         loader: 'image-webpack-loader',
+                //         options: {
+                //             bypassOnDebug: true, // webpack@1.x
+                //             disable: true, // webpack@2.x and newer
+                //         },
+                //     },
+                // ],
                 use: [
-                    'file-loader',
                     {
-                        loader: 'image-webpack-loader',
+                        loader: "file-loader",
                         options: {
-                            bypassOnDebug: true, // webpack@1.x
-                            disable: true, // webpack@2.x and newer
-                        },
-                    },
-                ],
+                            name:'images/[name].[ext]'
+                        }
+                    }
+                ]
             }
 
         ]
@@ -92,7 +101,9 @@ module.exports = {
         new ExtractTextPlugin('[name]css/[hash].css'),
         new CleanWebpackPlugin(),
         new HTMLWebpackPlugin({
-            template: path.join(__dirname, './src/index.html')
+            template: path.join(__dirname, './src/index.html'),
+            hash: true,
+            filename: "index.html"
         })
     ],
 
