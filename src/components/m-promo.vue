@@ -20,7 +20,7 @@
            <v-img
                 src="./img/11.jpg"
            ></v-img>
-           <!--<img src="img/11.jpg">-->
+
        </div> 
     </div>
 
