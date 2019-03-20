@@ -27,6 +27,7 @@
 </template>
 
 <script>
+    import '../images/11.jpeg'
     export default {
         name: "m-promo"
     }
