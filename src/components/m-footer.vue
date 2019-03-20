@@ -11,7 +11,7 @@
             >
                 <v-card-title class="blue-grey darken-4">
                     <span class="logo">
-                       <router-link :to="'/'">MELISA</router-link>
+                       <router-link :to="'/'">MELISSA</router-link>
                     </span>
 
                     <v-spacer></v-spacer>
