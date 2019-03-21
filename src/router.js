@@ -8,6 +8,7 @@ import NewFull from './pages/newFull.vue'
 import Trend from './pages/Trend.vue'
 import Albums from './pages/albums.vue'
 import Album from './pages/album.vue'
+import Registration from './pages/registration.vue'
 
 
 
@@ -29,6 +30,11 @@ export default new VueRouter({
             path: '/contact',
             name: 'contact',
             component: Contact
+        },
+        {
+            path: '/registration',
+            name: 'registration',
+            component: Registration
         },
         {
             path: '/albums',

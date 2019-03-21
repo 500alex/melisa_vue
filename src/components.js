@@ -13,6 +13,7 @@ import mPhoto from './components/m-photo.vue'
 import VueGallery from 'vue-gallery';
 
 
+
 export default function (Vue) {
    // Vue.use(callout);
 
