@@ -1,4 +1,6 @@
 .idea/
 node_modules/
 www/dist
+package-lock.json
+
 
