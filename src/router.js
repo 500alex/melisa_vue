@@ -9,6 +9,7 @@ import Trend from './pages/Trend.vue'
 import Albums from './pages/albums.vue'
 import Album from './pages/album.vue'
 import Registration from './pages/registration.vue'
+import AdminNews from './pages/admin/adminNews.vue'
 
 
 
@@ -30,6 +31,11 @@ export default new VueRouter({
             path: '/contact',
             name: 'contact',
             component: Contact
+        },
+        {
+            path: '/admin/news',
+            name: 'adminNews',
+            component: AdminNews
         },
         {
             path: '/registration',

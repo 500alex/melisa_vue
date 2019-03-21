@@ -5,12 +5,13 @@ import news from './modules/news.js'
 import trends from './modules/trends'
 import photo from './modules/photo'
 import albums from './modules/albums'
+import admin from './modules/admin'
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules: {
-        counter,news,trends,photo,albums
+        counter,news,trends,photo,albums,admin
     },
     state: {
         links: [
@@ -18,11 +19,19 @@ export default new Vuex.Store({
             {text:'Новости',icon: 'mood', url: '/news'},
             {text:'Контакты',icon: 'phone', url: '/contact'},
         ],
+
     },
     getters: {
         getLinks (state) {
             return  state.links
         },
 
+
+    },
+    mutations: {
+        setAdmin (state,payload) {
+            state.isAdmin = payload;
+        }
     }
+
 })

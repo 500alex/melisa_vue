@@ -60,7 +60,7 @@
                 <router-link :to="'/'">MELISSA</router-link>
             </span>
             <v-spacer></v-spacer>
-            <v-toolbar-items class="hidden-sm-and-down">
+            <v-toolbar-items class="hidden-sm-and-down" v-if="!isAdmin">
                 <v-menu :nudge-width="100">
                     <v-toolbar-title slot="activator">
                         <span>Направления</span>
@@ -86,8 +86,24 @@
                     <v-icon left>{{link.icon}}</v-icon>
                     {{link.text}}
                 </v-btn>
-
             </v-toolbar-items>
+
+            <v-toolbar-items class="hidden-sm-and-down" v-if="isAdmin">
+                <v-btn
+                        flat
+                        v-for="(link,index) in adminLinks"
+                        :key="index"
+                        :to="link.url"
+                >
+                    <v-icon left>{{link.icon}}</v-icon>
+                    {{link.text}}
+                </v-btn>
+            </v-toolbar-items>
+
+            <v-btn icon @click="switchAdmin">
+                <v-icon>more_vert</v-icon>
+            </v-btn>
+
         </v-toolbar>
     </div>
 </template>
@@ -100,12 +116,27 @@
                 drawer: null,
             }
         },
+        methods: {
+            switchAdmin () {
+                if (!this.isAdmin){
+                    this.$store.commit('admin/setAdmin', true)
+                }else {
+                    this.$store.commit('admin/setAdmin', false)
+                }
+            }
+        },
         computed: {
             links (){
                 return this.$store.getters.getLinks;
             },
+            adminLinks (){
+                return this.$store.getters['admin/getAdminLinks'];
+            },
             trends () {
                 return this.$store.getters['trends/getTrends'];
+            },
+            isAdmin () {
+                return this.$store.getters['admin/getAdmin'];
             }
         }
     }
