@@ -1,7 +1,7 @@
 export default {
     namespaced: true,
     state: {
-        isAdmin: true,
+        isAdmin: false,
         adminLinks: [
             {id: 0, text: 'Редактор новостей', url: '/admin/news',icon: 'person'}
         ]
