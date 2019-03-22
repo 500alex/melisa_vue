@@ -27,15 +27,6 @@
 </template>
 
 <script>
-    import '../images/11.jpeg'
-    import '../images/dance1.png'
-    import '../images/dance2.png'
-    import '../images/dance3.png'
-    import '../images/photo1.jpeg'
-    import '../images/photo2.jpeg'
-    import '../images/photo3.jpeg'
-    import '../images/photo4.jpeg'
-    import '../images/teacher.png'
 
     export default {
         name: "m-promo"

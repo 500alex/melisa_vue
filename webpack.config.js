@@ -1,7 +1,7 @@
 let path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+// const CleanWebpackPlugin = require('clean-webpack-plugin');
 var HTMLWebpackPlugin = require('html-webpack-plugin');
 
 
@@ -9,7 +9,7 @@ module.exports = {
     entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, 'www/dist'),
-        filename: '[name].[hash].js',
+        filename: '[name].bundle.js?[hash]',
     },
     optimization: {
      runtimeChunk: 'single',
@@ -73,16 +73,6 @@ module.exports = {
             },
             {
                 test: /\.(gif|png|jpe?g|svg)$/i,
-                // use: [
-                //     'file-loader',
-                //     {
-                //         loader: 'image-webpack-loader',
-                //         options: {
-                //             bypassOnDebug: true, // webpack@1.x
-                //             disable: true, // webpack@2.x and newer
-                //         },
-                //     },
-                // ],
                 use: [
                     {
                         loader: "file-loader",
@@ -98,8 +88,8 @@ module.exports = {
     plugins: [
         // make sure to include the plugin!
         new VueLoaderPlugin(),
-        new ExtractTextPlugin('[name]css/[hash].css'),
-        new CleanWebpackPlugin(),
+        new ExtractTextPlugin('[name]css/bundle.css?[hash]'),
+        // new CleanWebpackPlugin(),
         new HTMLWebpackPlugin({
             template: path.join(__dirname, './src/index.html'),
             hash: true,

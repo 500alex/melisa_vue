@@ -8,6 +8,11 @@ import store from './store/index.js'
 import Swiper from 'swiper';
 import 'babel-polyfill'
 
+import './images/11.jpeg'
+import './images/dance1.png'
+import './images/dance2.png'
+import './images/dance3.png'
+
 
 Vue.use(Vuetify,{
     iconfont: 'md', // 'md' || 'mdi' || 'fa' || 'fa4'
