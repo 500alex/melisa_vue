@@ -7,6 +7,7 @@ import router from './router'
 import store from './store/index.js'
 import Swiper from 'swiper';
 import 'babel-polyfill'
+import * as fb from 'firebase'
 
 import './images/11.jpeg'
 import './images/dance1.png'
@@ -59,9 +60,17 @@ var app = new Vue({
     el: '#app',
     router,
     store,
-    data: {
-        message: 'hello'
-    }
+    created () {
+        var config = {
+            apiKey: "AIzaSyAHCBLvJckC-wlXQlRahOWpiunMCf1KjCs",
+            authDomain: "melissa-6bf5e.firebaseapp.com",
+            databaseURL: "https://melissa-6bf5e.firebaseio.com",
+            projectId: "melissa-6bf5e",
+            storageBucket: "melissa-6bf5e.appspot.com",
+            messagingSenderId: "1079590374781"
+        };
+        fb.initializeApp(config);
+}
 });
 
 

@@ -8,6 +8,7 @@ import NewFull from './pages/newFull.vue'
 import Trend from './pages/Trend.vue'
 import Albums from './pages/albums.vue'
 import Album from './pages/album.vue'
+import Login from './pages/login.vue'
 import Registration from './pages/registration.vue'
 import AdminNews from './pages/admin/adminNews.vue'
 
@@ -36,6 +37,11 @@ export default new VueRouter({
             path: '/admin/news',
             name: 'adminNews',
             component: AdminNews
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: Login
         },
         {
             path: '/registration',

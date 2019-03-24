@@ -2,6 +2,11 @@
 node_modules/
 package-lock.json
 www/dist/index.html
+www/dist/maincss/bundle.css
 www/dist/main.bundle.js
+www/dist/runtime.bundle.js
+www/dist/vendors.bundle.js
+www/dist/images/
+
 
 

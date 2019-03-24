@@ -3,10 +3,10 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 // const CleanWebpackPlugin = require('clean-webpack-plugin');
 var HTMLWebpackPlugin = require('html-webpack-plugin');
-
+require("babel-polyfill");
 
 module.exports = {
-    entry: './src/main.js',
+    entry: ["babel-polyfill",'./src/main.js'],
     output: {
         path: path.resolve(__dirname, 'www/dist'),
         filename: '[name].bundle.js?[hash]',

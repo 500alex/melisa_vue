@@ -6,7 +6,7 @@
                     <v-flex xs12 sm8 md6>
                         <v-card class="elevation-12">
                             <v-toolbar dark color="primary">
-                                <v-toolbar-title>Регистрация</v-toolbar-title>
+                                <v-toolbar-title>Авторизация</v-toolbar-title>
                                 <v-spacer></v-spacer>
                             </v-toolbar>
                             <v-card-text>
@@ -32,16 +32,6 @@
                                             v-model="password"
                                             :rules="passwordRules"
                                     ></v-text-field>
-                                    <v-text-field
-                                            id="confirmPassword"
-                                            prepend-icon="lock"
-                                            name="Confirm password"
-                                            label="Confirm password"
-                                            type="password"
-                                            :counter="6"
-                                            v-model="confirmPassword"
-                                            :rules="confirmPasswordRules"
-                                    ></v-text-field>
                                 </v-form>
                             </v-card-text>
                             <v-card-actions>
@@ -51,7 +41,7 @@
                                         @click="onSubmit"
                                         :disabled="!valid || loading"
                                         :loading="loading"
-                                >Регистрация</v-btn>
+                                >Войти</v-btn>
                             </v-card-actions>
                         </v-card>
                     </v-flex>
@@ -68,7 +58,6 @@
             return {
                 email: '',
                 password: '',
-                confirmPassword: '',
                 valid: false,
                 emailRules: [
                     v => !!v || 'E-mail обязателен',
@@ -78,17 +67,12 @@
                     v => !!v || 'Пароль обязателен',
                     v => (v && v.length >= 6) || 'Пароль должен быть больше 6 символов'
                 ],
-                confirmPasswordRules: [
-                    v => !!v || 'Пароль обязателен',
-                    v => v === this.password || 'Пароли должны совпадать!'
-                ],
             }
         },
         computed: {
             loading () {
-                return this.$store.getters['shared/loading'];
-            },
-
+                return this.$store.getters['shared/loading']
+            }
         },
         methods: {
             onSubmit () {
@@ -97,7 +81,7 @@
                         email: this.email,
                         password: this.password
                     };
-                    this.$store.dispatch('admin/registerUser', user)
+                    this.$store.dispatch('admin/loginUser', user)
                         .then(()=>{
                             this.$router.push('/');
                         })
