@@ -26,6 +26,9 @@
         computed: {
             error () {
                 return this.$store.getters['shared/error']
+            },
+            isUserLoggedIn () {
+                return this.$store.getters['admin/isUserLoggedIn']
             }
         },
         methods: {

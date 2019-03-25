@@ -88,6 +88,11 @@
                         .catch(err=> {})
                 }
             }
+        },
+        created () {
+          if (this.$route.query['loginError']) {
+              this.$store.dispatch('shared/setError', 'Залогиньтесь для доступа к странице')
+          }
         }
     }
 </script>

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import authGuard from './auth-guard.js'
 import Home from './pages/Home.vue';
 import Contact from './pages/Contact.vue'
 import News from './pages/News.vue'
@@ -11,13 +12,10 @@ import Album from './pages/album.vue'
 import Login from './pages/login.vue'
 import Registration from './pages/registration.vue'
 import AdminNews from './pages/admin/adminNews.vue'
-
-
-
+import store from "@/store";
 
 
 Vue.use(VueRouter);
-
 
 export default new VueRouter({
     linkActiveClass: "active",
@@ -36,7 +34,8 @@ export default new VueRouter({
         {
             path: '/admin/news',
             name: 'adminNews',
-            component: AdminNews
+            component: AdminNews,
+            beforeEnter: authGuard
         },
         {
             path: '/login',

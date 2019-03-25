@@ -100,10 +100,12 @@
                 </v-btn>
             </v-toolbar-items>
 
-            <v-btn icon @click="switchAdmin">
+            <v-btn icon @click="switchAdmin" v-if="isUserLoggedIn">
                 <v-icon>more_vert</v-icon>
             </v-btn>
-
+            <v-btn icon @click="onLogout" v-if="isUserLoggedIn">
+                <v-icon>exit_to_app</v-icon>
+            </v-btn>
         </v-toolbar>
     </div>
 </template>
@@ -123,6 +125,10 @@
                 }else {
                     this.$store.commit('admin/setAdmin', false)
                 }
+            },
+            onLogout () {
+                this.$store.dispatch('admin/logoutUser')
+                this.$router.push('/');
             }
         },
         computed: {
@@ -137,6 +143,9 @@
             },
             isAdmin () {
                 return this.$store.getters['admin/getAdmin'];
+            },
+            isUserLoggedIn () {
+                return this.$store.getters['admin/isUserLoggedIn']
             }
         }
     }

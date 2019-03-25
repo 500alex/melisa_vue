@@ -26,8 +26,6 @@ export default new Vuex.Store({
         getLinks (state) {
             return  state.links
         },
-
-
     },
     mutations: {
         setAdmin (state,payload) {

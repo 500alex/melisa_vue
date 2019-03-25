@@ -24,7 +24,11 @@ export default {
         },
         user (state){
             return state.user
+        },
+        isUserLoggedIn (state){
+            return state.user !== null
         }
+
     },
     mutations: {
         setAdmin (state,payload) {
@@ -62,6 +66,14 @@ export default {
                  commit('shared/setError',error.message,{ root: true });
                 throw error
             }
+        },
+        autoLoginUser ({commit}, payload) {
+            commit('setUser', new User(payload.uid))
+        },
+        logoutUser ({commit}){
+            fb.auth().signOut()
+            commit('setUser', null);
         }
+
     }
 }
