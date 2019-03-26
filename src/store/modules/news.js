@@ -22,7 +22,15 @@ export default {
         },
         deleteSelected (state,i) {
             state.selected.splice(i, 1);
+        },
+        createNews (state,payload){
+            state.newsList.push(payload);
         }
     },
+    actions: {
+        createNews ({commit},payload){
+            commit('createNews',payload);
+        }
+    }
 
 }

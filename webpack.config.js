@@ -6,7 +6,7 @@ var HTMLWebpackPlugin = require('html-webpack-plugin');
 require("babel-polyfill");
 
 module.exports = {
-    entry: ["babel-polyfill",'./src/main.js'],
+    entry: ['regenerator-runtime/runtime','./src/main.js'],
     output: {
         path: path.resolve(__dirname, 'www/dist'),
         filename: '[name].bundle.js?[hash]',

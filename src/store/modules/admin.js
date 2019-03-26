@@ -12,7 +12,8 @@ export default {
         isAdmin: false,
         user: null,
         adminLinks: [
-            {id: 0, text: 'Редактор новостей', url: '/admin/news',icon: 'person'}
+            {id: 0, text: 'Список новостей', url: '/admin/news',icon: 'person'},
+            {id: 1, text: 'Создать новость', url: '/admin/createnews',icon: 'person'}
         ]
     },
     getters: {

@@ -8,6 +8,8 @@ import store from './store/index.js'
 import Swiper from 'swiper';
 import 'babel-polyfill'
 import * as fb from 'firebase'
+var moment = require('moment');
+moment.locale('ru');
 
 import './images/11.jpeg'
 import './images/dance1.png'
