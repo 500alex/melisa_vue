@@ -83,10 +83,11 @@
                             title: this.title,
                             shortDescription: this.shortDescription,
                             description: this.description,
-                            data: '01.01.01',
-                            id: 10
+                            data: this.dateNow,
+                            id: 14
                         }
-                    this.$store.dispatch('news/createNews', news);
+                    //this.$store.dispatch('news/createNews', news);
+                    this.$http.post('http://localhost:5000/screatenews',news);
                     this.$router.push('/news');
                 }
             },
@@ -94,6 +95,9 @@
         computed: {
             loading () {
                 return this.$store.getters['shared/loading']
+            },
+            dateNow () {
+                return this.moment().format('DD-MM-YYYY');
             }
         },
     }

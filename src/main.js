@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+import VueResource from 'vue-resource'
 //import 'vuetify/dist/vuetify.min.css'
 import colors from 'vuetify/es5/util/colors'
 // import '@fortawesome/fontawesome-free/css/all.css'
@@ -19,6 +20,7 @@ import './images/dance1.png'
 import './images/dance2.png'
 import './images/dance3.png'
 
+Vue.use(VueResource);
 
 Vue.use(Vuetify,{
     iconfont: 'md', // 'md' || 'mdi' || 'fa' || 'fa4'
@@ -33,6 +35,7 @@ Vue.use(Vuetify,{
     }
 });
 import componet from './components.js';
+
 componet(Vue);
 
 import io from 'socket.io-client';
