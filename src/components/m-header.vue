@@ -127,7 +127,8 @@
                 }
             },
             onLogout () {
-                this.$store.dispatch('admin/logoutUser')
+                this.$store.dispatch('admin/logoutUser');
+                this.$store.commit('admin/setAdmin', false);
                 this.$router.push('/');
             }
         },
