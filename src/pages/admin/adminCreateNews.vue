@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-container>
-            <h4 class="display-1 mb-3">Создание новости {{'01/01/01'}}</h4>
+            <h4 class="display-1 mb-3">Создание новости от {{moment().format('DD-MM-YYYY')}}</h4>
             <v-flex>
                 <v-card
                         class="mx-auto"

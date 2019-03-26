@@ -8,8 +8,11 @@ import store from './store/index.js'
 import Swiper from 'swiper';
 import 'babel-polyfill'
 import * as fb from 'firebase'
-var moment = require('moment');
-moment.locale('ru');
+
+//var moment = require('./utils.js');
+
+import moment from 'moment'
+Vue.prototype.moment = moment
 
 import './images/11.jpeg'
 import './images/dance1.png'
