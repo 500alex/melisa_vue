@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-container>
-            <h4 class="display-1 mb-3">Создание новости от {{moment().format('DD-MM-YYYY')}}</h4>
+            <h4 class="display-1 mb-3">Радектируем новость</h4>
             <v-flex>
                 <v-card
                         class="mx-auto"
@@ -80,12 +80,12 @@
         methods: {
             createNews () {
                 if (this.$refs.form.validate()){
-                        const news = {
-                            title: this.title,
-                            shortDescription: this.shortDescription,
-                            description: this.description,
-                            data: this.dateNow,
-                        }
+                    const news = {
+                        title: this.title,
+                        shortDescription: this.shortDescription,
+                        description: this.description,
+                        data: this.dateNow,
+                    }
                     // this.$http.post('http://localhost:3000/news', news)
                     //     .then(response =>{
                     //         return response.json()

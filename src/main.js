@@ -22,6 +22,12 @@ import './images/dance3.png'
 
 Vue.use(VueResource);
 
+Vue.http.options.root = 'http://localhost:3000/';
+
+Vue.http.interceptors.push(request => {
+    request.headers.set('Auth', 'RAND TOKEN' + Math.random());
+})
+
 Vue.use(Vuetify,{
     iconfont: 'md', // 'md' || 'mdi' || 'fa' || 'fa4'
     // icons: {

@@ -1,0 +1,74 @@
+{
+  "news": [
+    {
+      "title": "asdf",
+      "shortDescription": "asdf",
+      "description": "asdf",
+      "data": "27-03-2019",
+      "id": 1
+    },
+    {
+      "title": "Новость 2",
+      "shortDescription": "Краткое описание новости 2",
+      "description": "Полное описание новости 2",
+      "data": "27-03-2019",
+      "id": 2
+    },
+    {
+      "title": "Новость 3",
+      "shortDescription": "Краткое описание новости 3",
+      "description": "Полное описание новости 3",
+      "data": "27-03-2019",
+      "id": 3
+    },
+    {
+      "title": "Новость 4",
+      "shortDescription": "Краткое описание новости 4",
+      "description": "Полное описание новости 4",
+      "data": "27-03-2019",
+      "id": 4
+    },
+    {
+      "title": "5",
+      "shortDescription": "5",
+      "description": "5",
+      "data": "27-03-2019",
+      "id": 5
+    },
+    {
+      "title": "asd",
+      "shortDescription": "asd",
+      "description": "asd",
+      "data": "27-03-2019",
+      "id": 6
+    },
+    {
+      "title": "asd",
+      "shortDescription": "asd",
+      "description": "asd",
+      "data": "27-03-2019",
+      "id": 7
+    },
+    {
+      "title": "asd",
+      "shortDescription": "asd",
+      "description": "asd",
+      "data": "27-03-2019",
+      "id": 8
+    },
+    {
+      "title": "asd",
+      "shortDescription": "asd",
+      "description": "asd",
+      "data": "27-03-2019",
+      "id": 9
+    },
+    {
+      "title": "asda",
+      "shortDescription": "sd",
+      "description": "asd",
+      "data": "27-03-2019",
+      "id": 10
+    }
+  ]
+}

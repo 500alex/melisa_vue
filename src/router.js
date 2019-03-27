@@ -13,6 +13,7 @@ import Login from './pages/login.vue'
 import Registration from './pages/registration.vue'
 import AdminNews from './pages/admin/adminNews.vue'
 import AdminCreateNews from './pages/admin/adminCreateNews.vue'
+import AdminEditNews from './pages/admin/adminEditNews.vue'
 import store from "@/store";
 
 
@@ -36,13 +37,19 @@ export default new VueRouter({
             path: '/admin/news',
             name: 'adminNews',
             component: AdminNews,
-            beforeEnter: authGuard
+            // beforeEnter: authGuard
         },
         {
             path: '/admin/createnews',
             name: 'adminCreateNews',
             component: AdminCreateNews,
-            beforeEnter: authGuard
+            // beforeEnter: authGuard
+        },
+        {
+            path: '/admin/editnews/:id',
+            name: 'adminEditNews',
+            component: AdminEditNews,
+            // beforeEnter: authGuard
         },
         {
             path: '/login',

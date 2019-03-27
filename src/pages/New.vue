@@ -1,10 +1,10 @@
 <template>
     <div>
         <v-container>
-            <h3 class="page-header">{{curentNews.title}}</h3>
+            <h3 class="page-header"> заголовок новости {{curentNews.title}}</h3>
             <v-layout>
                 <v-flex>
-                    <div class="news-container">{{curentNews.description}}</div>
+                    <div class="news-container"> Полное описание  {{curentNews.description}}</div>
                     <v-btn right round color="primary" dark @click="goNews" style="float: right;">К списку новостей</v-btn>
                 </v-flex>
             </v-layout>
@@ -23,7 +23,9 @@
             return {
                 // id: this.$router.currentRoute.params['id'];
                 id: this.$route.params['id'],
-                curentNews: null
+                curentNews: null,
+                newsList: [],
+                resource: null
             }
         },
         methods: {
@@ -38,17 +40,32 @@
             }
         },
         computed: {
-            newsList () {
-                return this.$store.getters['news/getNews'];
-            },
+            // newsList () {
+            //     return this.$store.getters['news/getNews'];
+            // },
         },
         created() {
             var _this = this;
-                this.newsList.forEach(function (item,i) {
-                    if(item.id == _this.id){
-                        _this.curentNews = item;
-                    }
+            this.resource = this.$resource('news');
+
+            this.resource.get().then(response => response.json())
+                .then(news => {
+                    _this.newsList = news
+                    _this.newsList.forEach(function (item,i) {
+                        if(item.id == _this.id){
+                            _this.curentNews = item;
+                        }
+                    });
+
                 });
+
+            // this.$http.get('http://localhost:3000/news')
+            //     .then(response =>{
+            //         return response.json()
+            //     })
+            //     .then(data => {
+            //         this.newsList = data;
+            //     })
         }
     }
 </script>
