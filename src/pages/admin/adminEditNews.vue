@@ -56,7 +56,7 @@
                                 color="primary"
                                 depressed
                                 @click="saveNews"
-                        >Submit</v-btn>
+                        >Обновить</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-flex>
