@@ -82,7 +82,6 @@
                     .then(news => this.newsList = news);
             },
             deleteNews (id) {
-                console.log(id);
                 var _this = this;
                 this.resource.delete({id: id}).then(response => {
                     console.log('Удалили успешно')
@@ -97,7 +96,7 @@
 
         },
         created() {
-            this.resource = this.$resource('news');
+            this.resource = this.$resource('news{/id}');
             this.updateList();
         }
     }

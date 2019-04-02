@@ -55,7 +55,7 @@
                                 class="white--text"
                                 color="primary"
                                 depressed
-                                @click="createNews"
+                                @click="saveNews"
                         >Submit</v-btn>
                     </v-card-actions>
                 </v-card>
@@ -67,36 +67,40 @@
 <script>
     export default {
         name: "adminCreateNews",
-        data: () => ({
-            title: '',
-            shortDescription: '',
-            description: '',
-            valid: false,
-            resouсe: null,
-            inputRulles: [
-                v => !!v || 'Обязательное поле',
-            ]
-        }),
+        data () {
+            return {
+                title: '',
+                shortDescription: '',
+                description: '',
+                valid: false,
+                resource: null,
+                curentNews: null,
+                id: this.$route.params['id'],
+                inputRulles: [
+                    v => !!v || 'Обязательное поле',
+                ]
+            }
+        },
         methods: {
-            createNews () {
+            saveNews () {
+                var _this = this;
                 if (this.$refs.form.validate()){
                     const news = {
                         title: this.title,
                         shortDescription: this.shortDescription,
                         description: this.description,
                         data: this.dateNow,
-                    }
-                    // this.$http.post('http://localhost:3000/news', news)
-                    //     .then(response =>{
-                    //         return response.json()
-                    //     })
-                    //     .then(data => {
-                    //         console.log(data);
-                    //     })
-                    this.resource.save({},news);
-                    this.$router.push('/news');
+                    };
+                     //this.resource.update({},news);
+                     this.$http.put('http://localhost:3000/news/'+ _this.id, news);
+                    this.$router.push('/admin/news');
                 }
             },
+        },
+        watch: {
+            $route (toR,fromR) {
+                this.id = toR.params['id']
+            }
         },
         computed: {
             loading () {
@@ -107,7 +111,19 @@
             }
         },
         created () {
-            this.resource = this.$resource('news')
+            this.resource = this.$resource('news{/id}')
+
+        },
+        mounted () {
+            var _this = this;
+            this.resource.get({id: _this.id}).then(response => response.json())
+                .then(news => {
+                    console.log('Редактируемая новость' + news);
+                    _this.title = news.title;
+                    _this.shortDescription = news.shortDescription;
+                    _this.description = news.description;
+                });
+
         }
     }
 </script>

@@ -39,24 +39,19 @@
                 this.id = toR.params['id']
             }
         },
-        computed: {
-            // newsList () {
-            //     return this.$store.getters['news/getNews'];
-            // },
-        },
         created() {
             var _this = this;
-            this.resource = this.$resource('news');
+            this.resource = this.$resource('news{/id}');
 
-            this.resource.get().then(response => response.json())
+            this.resource.get({id: _this.id}).then(response => response.json())
                 .then(news => {
-                    _this.newsList = news
-                    _this.newsList.forEach(function (item,i) {
-                        if(item.id == _this.id){
-                            _this.curentNews = item;
-                        }
-                    });
-
+                    // _this.newsList = news
+                    // _this.newsList.forEach(function (item,i) {
+                    //     if(item.id == _this.id){
+                    //         _this.curentNews = item;
+                    //     }
+                    // });
+                    _this.curentNews = news;
                 });
 
             // this.$http.get('http://localhost:3000/news')

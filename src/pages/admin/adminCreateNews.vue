@@ -55,7 +55,7 @@
                                 class="white--text"
                                 color="primary"
                                 depressed
-                                @click="createNews"
+                                @click="saveNews"
                         >Submit</v-btn>
                     </v-card-actions>
                 </v-card>
@@ -78,7 +78,7 @@
             ]
         }),
         methods: {
-            createNews () {
+            saveNews () {
                 if (this.$refs.form.validate()){
                         const news = {
                             title: this.title,
@@ -94,7 +94,7 @@
                     //         console.log(data);
                     //     })
                     this.resource.save({},news);
-                    this.$router.push('/news');
+                    this.$router.push('/admin/news');
                 }
             },
         },
