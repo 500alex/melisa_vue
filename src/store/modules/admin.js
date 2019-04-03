@@ -13,6 +13,7 @@ export default {
         user: null,
         adminLinks: [
             {id: 0, text: 'Новости', url: '/admin/news',icon: 'person'},
+            {id: 1, text: 'Альбомы', url: '/admin/albums',icon: 'person'},
         ]
     },
     getters: {

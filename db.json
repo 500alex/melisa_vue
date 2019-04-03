@@ -21,5 +21,23 @@
       "data": "02-04-2019",
       "id": 3
     }
+  ],
+  "albums": [
+    {
+      "title": "Первый альбом 2",
+      "shortDescription": "Краткое название первого альбома",
+      "description": "Полное описание события",
+      "data": "03-04-2019",
+      "id": 1,
+      "previewPhoto": "./static/images/photo1.jpeg",
+      "listPhoto": [
+        {"id": 0, "url":"./static/images/photo1.jpeg","descriptionPhoto": "Описание фото"},
+        {"id": 1, "url":"./static/images/photo1.jpeg","descriptionPhoto": "Описание фото"},
+        {"id": 2, "url":"./static/images/photo1.jpeg","descriptionPhoto": "Описание фото"},
+        {"id": 3, "url":"./static/images/photo1.jpeg","descriptionPhoto": "Описание фото"},
+        {"id": 4, "url":"./static/images/photo1.jpeg","descriptionPhoto": "Описание фото"},
+        {"id": 5, "url":"./static/images/photo1.jpeg","descriptionPhoto": "Описание фото"}
+      ]
+    }
   ]
 }

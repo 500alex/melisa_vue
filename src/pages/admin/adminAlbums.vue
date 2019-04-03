@@ -2,7 +2,7 @@
     <div>
         <v-container>
             <div style="position: relative;">
-                <h3 class="page-header">Admin новости</h3>
+                <h3 class="page-header">Admin альбомы</h3>
                 <v-btn
                         absolute
                         dark
@@ -10,7 +10,7 @@
                         right
                         color="primary"
                         style="top: 0 !important;"
-                        :to="'/admin/createnews'"
+                        :to="'/admin/createalbum'"
                 >
                     <v-icon>add</v-icon>
                 </v-btn>
@@ -20,7 +20,7 @@
                 <v-flex xs12>
                     <v-card>
                         <v-list two-line>
-                            <template v-for="(item, index) in newsList">
+                            <template v-for="(item, index) in albumsList">
                                 <v-list-tile
                                         :key="item.title"
                                         avatar
@@ -38,11 +38,11 @@
                                             <v-btn
                                                     icon @click="editNews(item.id)"
                                                     style="margin-right: 15px;"
-                                                    :to="'/admin/editnews/' + item.id"
+                                                    :to="'/admin/editalbum/' + item.id"
                                             >
                                                 <v-icon>create</v-icon>
                                             </v-btn>
-                                            <v-btn icon @click="deleteNews(item.id)">
+                                            <v-btn icon @click="deleteAlbum(item.id)">
                                                 <v-icon>delete</v-icon>
                                             </v-btn>
                                         </div>
@@ -50,7 +50,7 @@
 
                                 </v-list-tile>
                                 <v-divider
-                                        v-if="index + 1 < newsList.length"
+                                        v-if="index + 1 < albumsList.length"
                                         :key="index"
                                 ></v-divider>
                             </template>
@@ -72,16 +72,16 @@
         name: "News",
         data (){
             return {
-                newsList: [],
+                albumsList: [],
                 resource: null
             }
         },
         methods: {
             updateList (){
                 this.resource.get().then(response => response.json())
-                    .then(news => this.newsList = news);
+                    .then(albums => this.albumsList = albums);
             },
-            deleteNews (id) {
+            deleteAlbum (id) {
                 var _this = this;
                 this.resource.delete({id: id}).then(response => {
                     console.log('Удалили успешно')
@@ -92,7 +92,7 @@
             },
         },
         created() {
-            this.resource = this.$resource('news{/id}');
+            this.resource = this.$resource('albums{/id}');
             this.updateList();
         }
     }

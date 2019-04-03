@@ -13,7 +13,10 @@ import Login from './pages/login.vue'
 import Registration from './pages/registration.vue'
 import AdminNews from './pages/admin/adminNews.vue'
 import AdminCreateNews from './pages/admin/adminCreateNews.vue'
+import AdminCreateAlbum from './pages/admin/adminCreateAlbum.vue'
 import AdminEditNews from './pages/admin/adminEditNews.vue'
+import AdminEditAlbum from './pages/admin/adminEditAlbum.vue'
+import AdminAlbums from './pages/admin/adminAlbums.vue'
 import store from "@/store";
 
 
@@ -40,15 +43,33 @@ export default new VueRouter({
             // beforeEnter: authGuard
         },
         {
+            path: '/admin/albums',
+            name: 'adminAlbums',
+            component: AdminAlbums,
+            // beforeEnter: authGuard
+        },
+        {
             path: '/admin/createnews',
             name: 'adminCreateNews',
             component: AdminCreateNews,
             // beforeEnter: authGuard
         },
         {
+            path: '/admin/createalbum',
+            name: 'adminCreateAlbum',
+            component: AdminCreateAlbum,
+            // beforeEnter: authGuard
+        },
+        {
             path: '/admin/editnews/:id',
             name: 'adminEditNews',
             component: AdminEditNews,
+            // beforeEnter: authGuard
+        },
+        {
+            path: '/admin/editalbum/:id',
+            name: 'adminEditAlbum',
+            component: AdminEditAlbum,
             // beforeEnter: authGuard
         },
         {

@@ -4,7 +4,7 @@
             <v-container grid-list-md>
                 <v-layout wrap>
                     <v-flex
-                            v-for="(item,i) in albums"
+                            v-for="(item,i) in albumsList"
                             :key="i"
                             xs12
                             sm6
@@ -21,7 +21,7 @@
                                 ></v-img>
                                 <v-card-title primary-title>
                                     <div>
-                                        <h3 class="headline mb-0">{{item.title}}</h3>
+                                        <h3 class="headline mb-0" style="font-size: 18px !important;">{{item.title}}</h3>
                                     </div>
                                 </v-card-title>
                             </v-card>
@@ -38,10 +38,29 @@
 <script>
     export default {
         name: "albums",
-        computed: {
-            albums () {
-                return this.$store.getters['albums/getAlbums'];
+        data (){
+            return {
+                albumsList: null,
+                resource: null,
             }
+        },
+        computed: {
+            // albums () {
+            //     return this.$store.getters['albums/getAlbums'];
+            // }
+        },
+        created() {
+            this.resource = this.$resource('albums');
+
+            this.resource.get().then(response => response.json())
+                .then(albums => this.albumsList = albums);
+            // this.$http.get('http://localhost:3000/news')
+            //     .then(response =>{
+            //         return response.json()
+            //     })
+            //     .then(data => {
+            //         this.newsList = data;
+            //     })
         }
     }
 </script>

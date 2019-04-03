@@ -29,6 +29,10 @@
                 </v-container>
             </v-item-group>
 
+            <div>
+                {{}}
+            </div>
+
             <v-layout>
                 <v-flex>
                     <v-btn right round color="primary" dark @click="goAlbums" style="float: right;">К списку альбомов</v-btn>
