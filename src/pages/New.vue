@@ -39,8 +39,11 @@
                 this.id = toR.params['id']
             }
         },
+        mounted (){
+            console.log('mounted' + this.curentNews);
+        },
         created() {
-            var _this = this;
+             var _this = this;
             this.resource = this.$resource('news{/id}');
 
             this.resource.get({id: _this.id}).then(response => response.json())
@@ -54,14 +57,14 @@
                     _this.curentNews = news;
                 });
 
-            // this.$http.get('http://localhost:3000/news')
-            //     .then(response =>{
-            //         return response.json()
-            //     })
-            //     .then(data => {
-            //         this.newsList = data;
-            //     })
-        }
+            // this.$http.get('http://localhost:3000/news', {params: {id: _this.id}})
+            // .then(response =>{
+            //     return response.json()
+            // })
+            // .then(data => {
+            //     _this.curentNews = data;
+            // })
+    }
     }
 </script>
 

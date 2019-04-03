@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-container>
-            <h3>Album</h3>
+            <h3>{{curAlbum.title}}</h3>
             <v-item-group>
                 <v-container grid-list-md>
                     <v-layout wrap>
@@ -30,7 +30,7 @@
             </v-item-group>
 
             <div>
-                {{}}
+                {{curAlbum.description}}
             </div>
 
             <v-layout>
@@ -51,26 +51,45 @@
         name: 'photo',
         data: function () {
             return {
-                index: null
+                index: null,
+                id: this.$route.params['id'],
+                curAlbum: undefined,
+                resource: null,
+                imageList: [],
+                images: []
             };
+        },
+        watch: {
+            $route (toR,fromR) {
+                this.id = toR.params['id']
+            }
         },
         methods: {
             goAlbums () {
                 this.$router.push('/albums')
             }
         },
-        computed: {
-            imageList () {
-                return this.$store.getters['photo/getPhoto']
-            },
-            images () {
-                var imagesUrl = [];
-                this.imageList.forEach(function (item) {
-                    imagesUrl.push(item.url);
-               });
-                 return imagesUrl;
-            }
-        }
+        created() {
+            var _this = this;
+            this.resource = this.$resource('albums{/id}');
+
+            this.resource.get({id: _this.id}).then(response => response.json())
+                .then(album => {
+                    _this.curAlbum = album;
+
+                });
+        },
+        mounted (){
+            var _this = this;
+            console.log(_this.curAlbum);
+           //  var _this = this;
+           //  this.imageList = this.curentAlbum.listPhoto;
+           //
+           //  this.imageList.forEach(function (item) {
+           //      _this.images.push(item.url);
+           // });
+        },
+
     }
 </script>
 
