@@ -15,6 +15,7 @@ export default {
             {id: 0, text: 'Новости', url: '/admin/news',icon: 'person'},
             {id: 1, text: 'Альбомы', url: '/admin/albums',icon: 'person'},
             {id: 2, text: 'Страницы', url: '/admin/pages',icon: 'person'},
+            {id: 3, text: 'Editor', url: '/admin/editor',icon: 'person'},
         ]
     },
     getters: {

@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import CKEditor from '@ckeditor/ckeditor5-vue';
 import Vuetify from 'vuetify'
 import VueResource from 'vue-resource'
 //import 'vuetify/dist/vuetify.min.css'
@@ -19,7 +20,7 @@ import './images/11.jpeg'
 import './images/dance1.png'
 import './images/dance2.png'
 import './images/dance3.png'
-
+Vue.use( CKEditor );
 Vue.use(VueResource);
 
 Vue.http.options.root = 'http://localhost:3000/';

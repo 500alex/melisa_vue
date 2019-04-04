@@ -29,14 +29,16 @@
                                 rows="2"
                                 :rules="inputRulles"
                         ></v-textarea>
-                        <v-textarea
-                                v-model="description"
-                                auto-grow
-                                box
-                                label="Описание..."
-                                rows="5"
-                                :rules="inputRulles"
-                        ></v-textarea>
+                        <!--<v-textarea-->
+                                <!--v-model="description"-->
+                                <!--auto-grow-->
+                                <!--box-->
+                                <!--label="Описание..."-->
+                                <!--rows="5"-->
+                                <!--:rules="inputRulles"-->
+                        <!--&gt;</v-textarea>-->
+                        <h5 style="margin-bottom: 20px;">Описание новости</h5>
+                        <ckeditor :editor="editor" v-model="description" :config="editorConfig"></ckeditor>
                     </v-form>
 
                     <v-divider></v-divider>
@@ -65,6 +67,7 @@
 </template>
 
 <script>
+    import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
     export default {
         name: "adminCreateNews",
         data () {
@@ -78,7 +81,11 @@
                 id: this.$route.params['id'],
                 inputRulles: [
                     v => !!v || 'Обязательное поле',
-                ]
+                ],
+                editor: ClassicEditor,
+                editorConfig: {
+                    // The configuration of the editor.
+                }
             }
         },
         methods: {

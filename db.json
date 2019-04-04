@@ -20,6 +20,13 @@
       "description": "Вторая новость",
       "data": "02-04-2019",
       "id": 3
+    },
+    {
+      "title": "Супер новость",
+      "shortDescription": "Супер новость",
+      "description": "<p><strong>Супер новость и что то еще</strong></p>",
+      "data": "04-04-2019",
+      "id": 4
     }
   ],
   "albums": [

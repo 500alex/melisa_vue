@@ -4,7 +4,9 @@
             <h3 class="page-header">{{curentNews.title}}</h3>
             <v-layout>
                 <v-flex>
-                    <div class="news-container">{{curentNews.description}}</div>
+                    <div>
+                        <div v-html="curentNews.description"></div>
+                    </div>
                     <v-btn right round color="primary" dark @click="goNews" style="float: right;">К списку новостей</v-btn>
                 </v-flex>
             </v-layout>

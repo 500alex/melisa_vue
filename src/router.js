@@ -20,6 +20,7 @@ import AdminEditAlbum from './pages/admin/adminEditAlbum.vue'
 import AdminEditPage from './pages/admin/adminEditPage.vue'
 import AdminAlbums from './pages/admin/adminAlbums.vue'
 import AdminPages from './pages/admin/adminPages.vue'
+import AdminEditor from './pages/admin/adminEditor.vue'
 import store from "@/store";
 
 
@@ -49,6 +50,12 @@ export default new VueRouter({
             path: '/admin/albums',
             name: 'adminAlbums',
             component: AdminAlbums,
+            // beforeEnter: authGuard
+        },
+        {
+            path: '/admin/editor',
+            name: 'adminEditor',
+            component: AdminEditor,
             // beforeEnter: authGuard
         },
         {
