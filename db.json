@@ -31,13 +31,81 @@
       "id": 1,
       "previewPhoto": "./static/images/photo1.jpeg",
       "listPhoto": [
-        {"id": 0, "url":"./static/images/photo1.jpeg","descriptionPhoto": "Описание фото"},
-        {"id": 1, "url":"./static/images/photo1.jpeg","descriptionPhoto": "Описание фото"},
-        {"id": 2, "url":"./static/images/photo1.jpeg","descriptionPhoto": "Описание фото"},
-        {"id": 3, "url":"./static/images/photo1.jpeg","descriptionPhoto": "Описание фото"},
-        {"id": 4, "url":"./static/images/photo1.jpeg","descriptionPhoto": "Описание фото"},
-        {"id": 5, "url":"./static/images/photo1.jpeg","descriptionPhoto": "Описание фото"}
+        {
+          "id": 0,
+          "url": "./static/images/photo1.jpeg",
+          "descriptionPhoto": "Описание фото"
+        },
+        {
+          "id": 1,
+          "url": "./static/images/photo1.jpeg",
+          "descriptionPhoto": "Описание фото"
+        },
+        {
+          "id": 2,
+          "url": "./static/images/photo1.jpeg",
+          "descriptionPhoto": "Описание фото"
+        },
+        {
+          "id": 3,
+          "url": "./static/images/photo1.jpeg",
+          "descriptionPhoto": "Описание фото"
+        },
+        {
+          "id": 4,
+          "url": "./static/images/photo1.jpeg",
+          "descriptionPhoto": "Описание фото"
+        },
+        {
+          "id": 5,
+          "url": "./static/images/photo1.jpeg",
+          "descriptionPhoto": "Описание фото"
+        }
       ]
+    }
+  ],
+  "pages": [
+    {
+      "id": 0,
+      "icon": "./images/dance1.png",
+      "description": "asdf",
+      "title": "Бачата",
+      "url": "bachata"
+    },
+    {
+      "id": 1,
+      "icon": "./images/dance1.png",
+      "description": "asdf",
+      "title": "Сальса",
+      "url": "salsa"
+    },
+    {
+      "id": 2,
+      "icon": "./images/dance1.png",
+      "description": "asdf",
+      "title": "Танго",
+      "url": "tango"
+    },
+    {
+      "id": 3,
+      "icon": "./images/dance1.png",
+      "description": "asdf",
+      "title": "Дискофокс",
+      "url": "disco"
+    },
+    {
+      "id": 4,
+      "icon": "./images/dance1.png",
+      "description": "asdf",
+      "title": "Меренга",
+      "url": "merenga"
+    },
+    {
+      "title": "Групповые номера",
+      "url": "all",
+      "icon": "./images/dance1.png",
+      "description": "asdf",
+      "id": 5
     }
   ]
 }
