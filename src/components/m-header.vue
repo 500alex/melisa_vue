@@ -41,9 +41,9 @@
                         <v-list >
                             <v-list-tile
                                     :to="'/trend/'+ trend.url"
-                                    v-for="(trend,i) in trends"
+                                    v-for="(trend,i) in pagesList"
                                     :key="i"
-                            >{{trend.text}}</v-list-tile>
+                            >{{trend.title}}</v-list-tile>
                         </v-list>
 
                     </v-list-group>
@@ -69,11 +69,11 @@
 
                     <v-list>
                         <v-list-tile
-                                v-for="(trend,index) in trends"
+                                v-for="(trend,index) in pagesList"
                                 :key="index"
                                 :to="'/trend/'+ trend.url"
                         >
-                            <v-list-tile-title v-text="trend.text"></v-list-tile-title>
+                            <v-list-tile-title v-text="trend.title"></v-list-tile-title>
                         </v-list-tile>
                     </v-list>
                 </v-menu>
@@ -116,6 +116,7 @@
         data (){
             return {
                 drawer: null,
+                pagesList: []
             }
         },
         methods: {
@@ -130,7 +131,11 @@
                 this.$store.dispatch('admin/logoutUser');
                 this.$store.commit('admin/setAdmin', false);
                 this.$router.push('/');
-            }
+            },
+            updateList (){
+                this.resource.get().then(response => response.json())
+                    .then(pages => this.pagesList = pages);
+            },
         },
         computed: {
             links (){
@@ -139,15 +144,19 @@
             adminLinks (){
                 return this.$store.getters['admin/getAdminLinks'];
             },
-            trends () {
-                return this.$store.getters['trends/getTrends'];
-            },
+            // trends () {
+            //     return this.$store.getters['trends/getTrends'];
+            // },
             isAdmin () {
                 return this.$store.getters['admin/getAdmin'];
             },
             isUserLoggedIn () {
                 return this.$store.getters['admin/isUserLoggedIn']
             }
+        },
+        created() {
+            this.resource = this.$resource('pages{/id}');
+            this.updateList();
         }
     }
 </script>
