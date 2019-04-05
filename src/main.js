@@ -9,7 +9,10 @@ import router from './router'
 import store from './store/index.js'
 import Swiper from 'swiper';
 import 'babel-polyfill'
-import * as fb from 'firebase'
+import * as fb from 'firebase';
+import JQuery from 'jquery';
+import axios from 'axios';
+window.$ = JQuery;
 
 //var moment = require('./utils.js');
 
@@ -90,6 +93,7 @@ var app = new Vue({
                 this.$store.dispatch('admin/autoLoginUser', user)
             }
         })
+
 }
 });
 
