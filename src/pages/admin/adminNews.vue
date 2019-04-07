@@ -22,10 +22,9 @@
                         <v-list two-line>
                             <template v-for="(item, index) in newsList">
                                 <v-list-tile
-                                        :key="item.title"
+                                        :key="item.id"
                                         avatar
                                         ripple
-
                                 >
                                     <v-list-tile-content>
                                         <v-list-tile-title>{{ item.title }}</v-list-tile-title>
@@ -36,7 +35,7 @@
                                         <v-list-tile-action-text>{{ item.data }}</v-list-tile-action-text>
                                         <div>
                                             <v-btn
-                                                    icon @click="editNews(item.id)"
+                                                    icon
                                                     style="margin-right: 15px;"
                                                     :to="'/admin/editnews/' + item.id"
                                             >
@@ -87,7 +86,7 @@
                 return this.$store.getters['shared/loading']
             },
             newsList () {
-                return this.$store.getters['news/getNews'];
+                return this.$store.getters['getNews'];
             },
         },
         methods: {

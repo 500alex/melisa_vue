@@ -94,7 +94,7 @@ var app = new Vue({
             }
         });
 
-        this.$store.dispatch('news/fetchNews')
+        this.$store.dispatch('fetchNews')
 
     }
 

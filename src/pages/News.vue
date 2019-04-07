@@ -8,7 +8,7 @@
                         <v-list two-line>
                             <template v-for="(item, index) in newsList">
                                 <v-list-tile
-                                        :key="item.title"
+                                        :key="item.id"
                                         avatar
                                         ripple
                                         :to="'/new/' + item.id"
@@ -87,10 +87,10 @@
         },
         computed: {
             newsList () {
-                return this.$store.getters['news/getNews'];
+                return this.$store.getters.getNews;
             },
             selected () {
-                return this.$store.getters['news/getSelected'];
+                return this.$store.getters.getSelected;
             },
             loading () {
                 return this.$store.getters['shared/loading']

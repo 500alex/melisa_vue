@@ -77,7 +77,6 @@
                 description: '',
                 valid: false,
                 resource: null,
-                //curentNews: null,
                 id: this.$route.params['id'],
                 inputRulles: [
                     v => !!v || 'Обязательное поле',
@@ -102,7 +101,7 @@
                      //this.resource.update({},news);
                      //this.$http.put('http://localhost:3000/news/'+ _this.id, news);
                     //this.$router.push('/admin/news');
-                    this.$store.dispatch('news/updateNews',news)
+                    this.$store.dispatch('updateNews',news)
                 }
             },
         },
@@ -119,7 +118,8 @@
                 return this.moment().format('DD-MM-YYYY');
             },
             curentNews () {
-                var newsList = this.$store.getter['news/getNews'];
+                const id = this.id;
+                return this.$store.getters.getNewsById(id);
             }
         },
         created () {
@@ -127,6 +127,11 @@
 
         },
         mounted () {
+            if (this.curentNews) {
+                this.title = this.curentNews.title;
+                this.shortDescription = this.curentNews.shortDescription;
+                this.description = this.curentNews.description;
+            }
             // var _this = this;
             // this.resource.get({id: _this.id}).then(response => response.json())
             //     .then(news => {

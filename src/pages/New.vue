@@ -1,11 +1,11 @@
 <template>
     <div>
         <v-container>
-            <h3 class="page-header">{{curentNews.title}}</h3>
+            <h3 class="page-header">{{newsItem.title}}</h3>
             <v-layout>
                 <v-flex>
                     <div>
-                        <div v-html="curentNews.description"></div>
+                        <div v-html="newsItem.description"></div>
                     </div>
                     <v-btn right round color="primary" dark @click="goNews" style="float: right;">К списку новостей</v-btn>
                 </v-flex>
@@ -30,9 +30,9 @@
             }
         },
         computed: {
-            curentNews () {
+            newsItem () {
                 const id = this.id;
-                //return this.$store.getters['news/getNewsById(' + id + ')']
+                return this.$store.getters.getNewsById(id)
             }
         },
         methods: {
@@ -45,9 +45,7 @@
                 this.id = toR.params['id']
             }
         },
-        mounted (){
-            console.log('mounted-- ' + this.curentNews);
-        },
+
         created() {
             //  var _this = this;
             // this.resource = this.$resource('news{/id}');

@@ -10,15 +10,20 @@ class News {
 }
 
 export default {
-    namespaced: true,
+   // namespaced: true,
     state: {
         selected: [1],
         newsList: []
     },
     getters: {
         getNewsById(state) {
-            // return  adId => {
-            //    return state.newsList.find(ad => ad.id === adId)
+            return  adId => {
+               return state.newsList.find(ad => ad.id === adId)
+            }
+            // return function (id) {
+            //     return state.newsList.find(function (item) {
+            //         item.id === id;
+            //     })
             // }
         },
         getSelected (state){

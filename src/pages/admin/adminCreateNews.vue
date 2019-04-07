@@ -95,7 +95,7 @@
                             data: this.dateNow,
                         }
 
-                        this.$store.dispatch('news/createNews', news)
+                        this.$store.dispatch('createNews', news)
                             .then(()=>{
                                 this.$router.push('/admin/news');
                             })
@@ -124,7 +124,7 @@
             }
         },
         created () {
-            this.resource = this.$resource('news')
+            //this.resource = this.$resource('news')
         }
     }
 </script>
