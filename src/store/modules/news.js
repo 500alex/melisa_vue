@@ -17,12 +17,15 @@ export default {
     },
     getters: {
         getNewsById(state) {
-            return  adId => {
-               return state.newsList.find(ad => ad.id === adId)
-            }
+            // return  adId => {
+            //    return state.newsList.find(ad => ad.id === adId)
+            // }
         },
         getSelected (state){
             return state.selected;
+        },
+        getNews (state) {
+            return state.newsList;
         }
     },
     mutations: {
