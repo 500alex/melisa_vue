@@ -16,8 +16,10 @@ export default {
         newsList: []
     },
     getters: {
-        getNews (state) {
-            return state.newsList;
+        getNewsById(state) {
+            return  adId => {
+               return state.newsList.find(ad => ad.id === adId)
+            }
         },
         getSelected (state){
             return state.selected;
@@ -66,7 +68,7 @@ export default {
                 Object.keys(news).forEach(key => {
                     const ad = news[key]
                     resultNewsList.push(
-                        new News(ad.title, ad.shortDescription, ad.description, ad.key)
+                        new News(ad.title, ad.shortDescription, ad.description, key)
                     )
                 });
 

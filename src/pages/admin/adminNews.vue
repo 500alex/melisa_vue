@@ -16,7 +16,7 @@
                 </v-btn>
             </div>
 
-            <v-layout class="custom-lay">
+            <v-layout class="custom-lay" v-if="!loading">
                 <v-flex xs12>
                     <v-card>
                         <v-list two-line>
@@ -58,9 +58,16 @@
                     </v-card>
                 </v-flex>
             </v-layout>
-
-
-
+            <v-layout v-else align-center justify-center>
+                <v-flex class="text-xs-center pt-6">
+                    <v-progress-circular
+                            indeterminate
+                            :size="70"
+                            :width="7"
+                            color="red"
+                    ></v-progress-circular>
+                </v-flex>
+            </v-layout>
         </v-container>
 
     </div>
@@ -72,15 +79,22 @@
         name: "News",
         data (){
             return {
-                newsList: [],
                 resource: null
             }
         },
-        methods: {
-            updateList (){
-                this.resource.get().then(response => response.json())
-                    .then(news => this.newsList = news);
+        computed: {
+            loading () {
+                return this.$store.getters['shared/loading']
             },
+            newsList () {
+                return this.$store.getters['news/getNews'];
+            },
+        },
+        methods: {
+            // updateList (){
+            //     this.resource.get().then(response => response.json())
+            //         .then(news => this.newsList = news);
+            // },
             deleteNews (id) {
                 var _this = this;
                 this.resource.delete({id: id}).then(response => {
@@ -94,6 +108,11 @@
         created() {
             // this.resource = this.$resource('news{/id}');
             // this.updateList();
+
+        },
+        mounted () {
+
+                console.log('asdfasdf '+this.newsList);
 
         }
     }

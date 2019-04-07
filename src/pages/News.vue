@@ -109,7 +109,8 @@
             //     .then(data => {
             //         this.newsList = data;
             //     })
-        }
+        },
+
     }
 </script>
 

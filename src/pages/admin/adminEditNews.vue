@@ -77,7 +77,7 @@
                 description: '',
                 valid: false,
                 resource: null,
-                curentNews: null,
+                //curentNews: null,
                 id: this.$route.params['id'],
                 inputRulles: [
                     v => !!v || 'Обязательное поле',
@@ -96,11 +96,13 @@
                         title: this.title,
                         shortDescription: this.shortDescription,
                         description: this.description,
-                        data: this.dateNow,
+                        data: this.data,
+                        id: this.id
                     };
                      //this.resource.update({},news);
-                     this.$http.put('http://localhost:3000/news/'+ _this.id, news);
-                    this.$router.push('/admin/news');
+                     //this.$http.put('http://localhost:3000/news/'+ _this.id, news);
+                    //this.$router.push('/admin/news');
+                    this.$store.dispatch('news/updateNews',news)
                 }
             },
         },
@@ -115,21 +117,25 @@
             },
             dateNow () {
                 return this.moment().format('DD-MM-YYYY');
+            },
+            curentNews () {
+                var newsList = this.$store.getter['news/getNews'];
             }
         },
         created () {
-            this.resource = this.$resource('news{/id}')
+            //this.resource = this.$resource('news{/id}')
 
         },
         mounted () {
-            var _this = this;
-            this.resource.get({id: _this.id}).then(response => response.json())
-                .then(news => {
-                    console.log('Редактируемая новость' + news);
-                    _this.title = news.title;
-                    _this.shortDescription = news.shortDescription;
-                    _this.description = news.description;
-                });
+            // var _this = this;
+            // this.resource.get({id: _this.id}).then(response => response.json())
+            //     .then(news => {
+            //         console.log('Редактируемая новость' + news);
+            //         _this.title = news.title;
+            //         _this.shortDescription = news.shortDescription;
+            //         _this.description = news.description;
+            //     });
+
 
         }
     }

@@ -9,6 +9,10 @@
                 >
                 <button @click="$refs.fileInput.click()">Pich File</button>
                 <button @click="onUpload">Upload</button>
+                <v-btn class="warning">
+                    Upload
+                    <v-icon right dark>cloud_upload</v-icon>
+                </v-btn>
             </v-flex>
         </v-layout>
     </v-container>
@@ -27,7 +31,8 @@
                 editorConfig: {
                     // The configuration of the editor.
                 },
-                selectedFile: null
+                selectedFile: null,
+                fileSrc: ''
             }
         },
         mounted (){

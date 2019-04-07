@@ -25,16 +25,20 @@
             return {
                 // id: this.$router.currentRoute.params['id'];
                 id: this.$route.params['id'],
-                curentNews: null,
-                newsList: [],
-                resource: null
+                //newsList: [],
+                //resource: null
+            }
+        },
+        computed: {
+            curentNews () {
+                const id = this.id;
+                //return this.$store.getters['news/getNewsById(' + id + ')']
             }
         },
         methods: {
             goNews () {
                 this.$router.push('/news')
             },
-
         },
         watch: {
             $route (toR,fromR) {
@@ -42,22 +46,22 @@
             }
         },
         mounted (){
-            console.log('mounted' + this.curentNews);
+            console.log('mounted-- ' + this.curentNews);
         },
         created() {
-             var _this = this;
-            this.resource = this.$resource('news{/id}');
-
-            this.resource.get({id: _this.id}).then(response => response.json())
-                .then(news => {
-                    // _this.newsList = news
-                    // _this.newsList.forEach(function (item,i) {
-                    //     if(item.id == _this.id){
-                    //         _this.curentNews = item;
-                    //     }
-                    // });
-                    _this.curentNews = news;
-                });
+            //  var _this = this;
+            // this.resource = this.$resource('news{/id}');
+            //
+            // this.resource.get({id: _this.id}).then(response => response.json())
+            //     .then(news => {
+            //         // _this.newsList = news
+            //         // _this.newsList.forEach(function (item,i) {
+            //         //     if(item.id == _this.id){
+            //         //         _this.curentNews = item;
+            //         //     }
+            //         // });
+            //         _this.curentNews = news;
+            //     });
 
             // this.$http.get('http://localhost:3000/news', {params: {id: _this.id}})
             // .then(response =>{
