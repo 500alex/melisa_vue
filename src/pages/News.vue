@@ -2,7 +2,7 @@
     <div>
         <v-container>
             <h3 class="page-header">Все новости</h3>
-            <v-layout class="custom-lay">
+            <v-layout class="custom-lay" v-if="!loading">
                 <v-flex xs12>
                     <v-card>
                         <v-list two-line>
@@ -47,6 +47,16 @@
                     </v-card>
                 </v-flex>
             </v-layout>
+            <v-layout v-else align-center justify-center>
+                <v-flex class="text-xs-center pt-6">
+                    <v-progress-circular
+                            indeterminate
+                            :size="70"
+                            :width="7"
+                            color="red"
+                    ></v-progress-circular>
+                </v-flex>
+            </v-layout>
         </v-container>
 
     </div>
@@ -58,7 +68,6 @@
         name: "News",
         data (){
             return {
-                newsList: [],
                 resource: null
             }
         },
@@ -77,18 +86,22 @@
             }
         },
         computed: {
-            // newsList () {
-            //     return this.$store.getters['news/getNews'];
-            // },
+            newsList () {
+                return this.$store.getters['news/getNews'];
+            },
             selected () {
                 return this.$store.getters['news/getSelected'];
+            },
+            loading () {
+                return this.$store.getters['shared/loading']
             }
         },
         created() {
-            this.resource = this.$resource('news');
+            // this.resource = this.$resource('news');
+            //
+            // this.resource.get().then(response => response.json())
+            //     .then(news => this.newsList = news);
 
-            this.resource.get().then(response => response.json())
-                .then(news => this.newsList = news);
             // this.$http.get('http://localhost:3000/news')
             //     .then(response =>{
             //         return response.json()

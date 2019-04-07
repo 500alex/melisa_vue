@@ -78,7 +78,7 @@ var app = new Vue({
     el: '#app',
     router,
     store,
-    created () {
+    created() {
         var config = {
             apiKey: "AIzaSyAHCBLvJckC-wlXQlRahOWpiunMCf1KjCs",
             authDomain: "melissa-6bf5e.firebaseapp.com",
@@ -92,9 +92,13 @@ var app = new Vue({
             if (user) {
                 this.$store.dispatch('admin/autoLoginUser', user)
             }
-        })
+        });
 
-}
-});
+        this.$store.dispatch('news/fetchNews')
+
+    }
+
+})
+
 
 

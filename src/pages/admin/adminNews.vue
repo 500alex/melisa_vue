@@ -92,8 +92,9 @@
             },
         },
         created() {
-            this.resource = this.$resource('news{/id}');
-            this.updateList();
+            // this.resource = this.$resource('news{/id}');
+            // this.updateList();
+
         }
     }
 </script>

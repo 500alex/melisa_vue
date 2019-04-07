@@ -68,6 +68,7 @@
 
 <script>
     import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+    import * as fb from 'firebase';
     export default {
         name: "adminCreateNews",
         data: () => ({
@@ -93,6 +94,12 @@
                             description: this.description,
                             data: this.dateNow,
                         }
+
+                        this.$store.dispatch('news/createNews', news)
+                            .then(()=>{
+                                this.$router.push('/admin/news');
+                            })
+                            .catch(()=>{})
                     // this.$http.post('http://localhost:3000/news', news)
                     //     .then(response =>{
                     //         return response.json()
@@ -100,8 +107,11 @@
                     //     .then(data => {
                     //         console.log(data);
                     //     })
-                    this.resource.save({},news);
-                    this.$router.push('/admin/news');
+
+                    //this.resource.save({},news);
+
+
+                   // this.$router.push('/admin/news');
                 }
             },
         },

@@ -1,7 +1,19 @@
+import * as fb from 'firebase';
+
+class News {
+    constructor (title,shortDescription,description,id = null){
+        this.title = title;
+        this.shortDescription = shortDescription;
+        this.description = description;
+        this.id = id;
+    }
+}
+
 export default {
     namespaced: true,
     state: {
-        selected: [1]
+        selected: [1],
+        newsList: []
     },
     getters: {
         getNews (state) {
@@ -18,12 +30,57 @@ export default {
         deleteSelected (state,i) {
             state.selected.splice(i, 1);
         },
+        loadNews (state,payload) {
+            state.newsList = payload;
+        }
 
     },
     actions: {
-        // createNews ({commit},payload){
-        //     commit('createNews',payload);
-        // }
+        async createNews ({commit,getters},payload){
+            commit('shared/clearError',null,{ root: true });
+            commit('shared/setLoading',true,{ root: true });
+            try {
+                const news = {
+                    title: payload.title,
+                    shortDescription: payload.shortDescription,
+                    description: payload.description,
+                    data: payload.data,
+                }
+                const ad = await fb.database().ref('news').push(news);
+            }catch (e) {
+                commit('shared/setError',e.message,{ root: true });
+                commit('shared/setLoading',false,{ root: true });
+                throw e
+            }
+        },
+        async fetchNews ({commit}){
+            commit('shared/clearError',null,{ root: true });
+            commit('shared/setLoading',true,{ root: true });
+
+            var resultNewsList = [];
+
+            try {
+                const fbVal = await fb.database().ref('news').once('value');
+                const news = fbVal.val();
+
+                Object.keys(news).forEach(key => {
+                    const ad = news[key]
+                    resultNewsList.push(
+                        new News(ad.title, ad.shortDescription, ad.description, ad.key)
+                    )
+                });
+
+                commit('shared/setLoading',false,{ root: true });
+                commit('loadNews',resultNewsList);
+
+            }catch (e) {
+
+                commit('shared/setError',e.message,{ root: true });
+                commit('shared/setLoading',false,{ root: true });
+                throw e
+
+            }
+        }
     }
 
 }
