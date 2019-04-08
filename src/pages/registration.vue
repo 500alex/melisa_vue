@@ -86,7 +86,7 @@
         },
         computed: {
             loading () {
-                return this.$store.getters['shared/loading'];
+                return this.$store.getters.loading
             },
 
         },

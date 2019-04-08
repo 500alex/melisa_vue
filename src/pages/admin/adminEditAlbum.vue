@@ -104,7 +104,7 @@
         },
         computed: {
             loading () {
-                return this.$store.getters['shared/loading']
+                return this.$store.getters.loading
             },
             dateNow () {
                 return this.moment().format('DD-MM-YYYY');

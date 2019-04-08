@@ -38,7 +38,7 @@
                                 <!--:rules="inputRulles"-->
                         <!--&gt;</v-textarea>-->
                         <h5 style="margin-bottom: 20px;">Описание новости</h5>
-                        <ckeditor :editor="editor" v-model="description" :config="editorConfig"></ckeditor>
+                        <!--<ckeditor :editor="editor" v-model="description" :config="editorConfig"></ckeditor>-->
                     </v-form>
 
                     <v-divider></v-divider>
@@ -57,7 +57,7 @@
                                 class="white--text"
                                 color="primary"
                                 depressed
-                                @click="saveNews"
+                                @click="updateNews"
                         >Обновить</v-btn>
                     </v-card-actions>
                 </v-card>
@@ -88,7 +88,8 @@
             }
         },
         methods: {
-            saveNews () {
+            updateNews () {
+                console.log('Обновляем');
                 var _this = this;
                 if (this.$refs.form.validate()){
                     const news = {
@@ -112,7 +113,7 @@
         },
         computed: {
             loading () {
-                return this.$store.getters['shared/loading']
+                return this.$store.getters.loading
             },
             dateNow () {
                 return this.moment().format('DD-MM-YYYY');
