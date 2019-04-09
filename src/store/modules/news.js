@@ -55,8 +55,8 @@ export default {
     },
     actions: {
         async createNews ({commit,getters},payload){
-            // commit('shared/clearError',null,{ root: true });
-            // commit('shared/setLoading',true,{ root: true });
+             commit('shared/clearError',null,{ root: true });
+            commit('shared/setLoading',true,{ root: true });
             try {
                 const news = {
                     title: payload.title,
@@ -66,14 +66,14 @@ export default {
                 }
                 const ad = await fb.database().ref('news').push(news);
             }catch (e) {
-                // commit('shared/setError',e.message,{ root: true });
-                // commit('shared/setLoading',false,{ root: true });
+                 commit('shared/setError',e.message,{ root: true });
+                 commit('shared/setLoading',false,{ root: true });
                 throw e
             }
         },
         async fetchNews ({commit}){
-            // commit('shared/clearError',null,{ root: true });
-            // commit('shared/setLoading',true,{ root: true });
+             commit('shared/clearError',null,{ root: true });
+             commit('shared/setLoading',true,{ root: true });
 
             var resultNewsList = [];
 
@@ -88,20 +88,20 @@ export default {
                     )
                 });
 
-                // commit('shared/setLoading',false,{ root: true });
+                commit('shared/setLoading',false,{ root: true });
                 commit('loadNews',resultNewsList);
 
             }catch (e) {
 
-                // commit('shared/setError',e.message,{ root: true });
-                // commit('shared/setLoading',false,{ root: true });
+                 commit('shared/setError',e.message,{ root: true });
+                 commit('shared/setLoading',false,{ root: true });
                 throw e
 
             }
         },
         async updateNews ({commit},{title,shortDescription,description,id}){
-            commit('clearError');
-            commit('setLoading',true);
+            commit('shared/clearError',null,{root:true});
+            commit('shared/setLoading',true,{root:true});
             try {
                 await fb.database().ref('news').child(id).update({
                     title, shortDescription,description
@@ -109,10 +109,10 @@ export default {
                 commit('updateNews', {
                    title,shortDescription,description,id
                 });
-                commit('setLoading',false);
+                commit('shared/setLoading',false,{root:true});
             }catch (e) {
-                // commit('shared/setError',e.message,{ root: true });
-                // commit('shared/setLoading',false,{ root: true });
+                 commit('shared/setError',e.message,{ root: true });
+                 commit('shared/setLoading',false,{ root: true });
                 throw e
             }
         }

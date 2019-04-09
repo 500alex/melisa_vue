@@ -38,7 +38,11 @@
                                 <!--:rules="inputRulles"-->
                         <!--&gt;</v-textarea>-->
                         <h5 style="margin-bottom: 20px;">Описание новости</h5>
-                        <!--<ckeditor :editor="editor" v-model="description" :config="editorConfig"></ckeditor>-->
+                        <ckeditor :editor="editor"
+                                  v-model="description"
+                                  :config="editorConfig"
+                                  @ready="prefill"
+                        ></ckeditor>
                     </v-form>
 
                     <v-divider></v-divider>
@@ -101,15 +105,21 @@
                     };
                      //this.resource.update({},news);
                      //this.$http.put('http://localhost:3000/news/'+ _this.id, news);
-                    //this.$router.push('/admin/news');
-                    this.$store.dispatch('updateNews',news)
+                    this.$store.dispatch('updateNews',news);
+                    this.$router.push('/admin/news');
                 }
             },
+            prefill( editor ) {
+                this.editorData = "Prefill with data here";
+            }
         },
         watch: {
             $route (toR,fromR) {
                 this.id = toR.params['id']
-            }
+            },
+            editorData: function( val ) {
+                this.$emit('input', val);
+            },
         },
         computed: {
             loading () {
