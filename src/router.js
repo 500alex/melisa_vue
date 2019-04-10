@@ -5,6 +5,10 @@ import Home from './pages/Home.vue';
 import Contact from './pages/Contact.vue'
 import News from './pages/News.vue'
 import New from './pages/New.vue'
+import Disco from './pages/disco.vue'
+import Salsa from './pages/salsa.vue'
+import Merenga from './pages/merenga.vue'
+import Classic from './pages/classic.vue'
 import NewFull from './pages/newFull.vue'
 import Trend from './pages/Trend.vue'
 import Albums from './pages/albums.vue'
@@ -137,10 +141,30 @@ export default new VueRouter({
                 }
             ]
         },
+        // {
+        //     path: '/trend/:id',
+        //     name: 'trend',
+        //     component: Trend
+        // },
         {
-            path: '/trend/:id',
-            name: 'trend',
-            component: Trend
+            path: '/disco',
+            name: 'disco',
+            component: Disco
+        },
+        {
+            path: '/salsa',
+            name: 'salsa',
+            component: Salsa
+        },
+        {
+            path: '/merenga',
+            name: 'merenga',
+            component: Merenga
+        },
+        {
+            path: '/classic',
+            name: 'classic',
+            component: Classic
         },
         {
             path: '*',

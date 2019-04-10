@@ -29,16 +29,16 @@
                                 rows="2"
                                 :rules="inputRulles"
                         ></v-textarea>
-                        <!--<v-textarea-->
-                                <!--v-model="description"-->
-                                <!--auto-grow-->
-                                <!--box-->
-                                <!--label="Описание..."-->
-                                <!--rows="5"-->
-                                <!--:rules="inputRulles"-->
-                        <!--&gt;</v-textarea>-->
-                        <h5 style="margin-bottom: 20px;">Описание новости</h5>
-                        <ckeditor :editor="editor" v-model="description" :config="editorConfig"></ckeditor>
+                        <v-textarea
+                                v-model="description"
+                                auto-grow
+                                box
+                                label="Описание..."
+                                rows="5"
+                                :rules="inputRulles"
+                        ></v-textarea>
+                        <!--<h5 style="margin-bottom: 20px;">Описание новости</h5>-->
+                        <!--<ckeditor :editor="editor" v-model="description" :config="editorConfig"></ckeditor>-->
                     </v-form>
 
                     <v-divider></v-divider>

@@ -69,9 +69,9 @@
 
                     <v-list>
                         <v-list-tile
-                                v-for="(trend,index) in pagesList"
+                                v-for="(trend,index) in trends"
                                 :key="index"
-                                :to="'/trend/'+ trend.url"
+                                :to="'/' + trend.url"
                         >
                             <v-list-tile-title v-text="trend.title"></v-list-tile-title>
                         </v-list-tile>
@@ -144,9 +144,9 @@
             adminLinks (){
                 return this.$store.getters['admin/getAdminLinks'];
             },
-            // trends () {
-            //     return this.$store.getters['trends/getTrends'];
-            // },
+            trends () {
+                return this.$store.getters['trends/getTrends'];
+            },
             isAdmin () {
                 return this.$store.getters['admin/getAdmin'];
             },

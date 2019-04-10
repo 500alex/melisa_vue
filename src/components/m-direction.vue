@@ -15,8 +15,8 @@
                             </div>
                             <v-card-title primary-title>
                                 <div style="width: 100%;">
-                                    <h3 class="headline mb-0 text-xs-center">{{trend.text}}</h3>
-                                    <div class="text-xs-center"> {{trend.description}} </div>
+                                    <h3 class="headline mb-0 text-xs-center">{{trend.title}}</h3>
+                                    <!--<div class="text-xs-center"> {{trend.description}} </div>-->
                                 </div>
                             </v-card-title>
                         </v-card>
