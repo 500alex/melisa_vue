@@ -87,7 +87,7 @@
         },
         computed: {
             newsList () {
-                return this.$store.getters.getNews;
+                return this.$store.getters['getNews'];
             },
             selected () {
                 return this.$store.getters.getSelected;

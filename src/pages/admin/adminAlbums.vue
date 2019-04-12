@@ -36,7 +36,7 @@
                                         <v-list-tile-action-text>{{ item.data }}</v-list-tile-action-text>
                                         <div>
                                             <v-btn
-                                                    icon @click="editNews(item.id)"
+                                                    icon
                                                     style="margin-right: 15px;"
                                                     :to="'/admin/editalbum/' + item.id"
                                             >
@@ -72,29 +72,24 @@
         name: "News",
         data (){
             return {
-                albumsList: [],
-                resource: null
+
             }
         },
         methods: {
-            updateList (){
-                this.resource.get().then(response => response.json())
-                    .then(albums => this.albumsList = albums);
-            },
             deleteAlbum (id) {
-                var _this = this;
-                this.resource.delete({id: id}).then(response => {
-                    console.log('Удалили успешно')
-                    _this.updateList();
-                }, response => {
-                    console.log('Не удалось удалить')
-                });
+                this.$store.dispatch('deleteAlbum',id);
+
             },
         },
-        created() {
-            this.resource = this.$resource('albums{/id}');
-            this.updateList();
-        }
+        computed: {
+            albumsList () {
+                return this.$store.getters['getAlbums'];
+            },
+            loading () {
+                return this.$store.getters['shared/loading']
+            }
+        },
+
     }
 </script>
 

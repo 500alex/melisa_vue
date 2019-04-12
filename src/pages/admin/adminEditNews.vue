@@ -133,26 +133,12 @@
                 return this.$store.getters.getNewsById(id);
             }
         },
-        created () {
-            //this.resource = this.$resource('news{/id}')
-
-        },
         mounted () {
             if (this.curentNews) {
                 this.title = this.curentNews.title;
                 this.shortDescription = this.curentNews.shortDescription;
                 this.description = this.curentNews.description;
             }
-            // var _this = this;
-            // this.resource.get({id: _this.id}).then(response => response.json())
-            //     .then(news => {
-            //         console.log('Редактируемая новость' + news);
-            //         _this.title = news.title;
-            //         _this.shortDescription = news.shortDescription;
-            //         _this.description = news.description;
-            //     });
-
-
         }
     }
 </script>

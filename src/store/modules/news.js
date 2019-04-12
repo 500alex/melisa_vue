@@ -50,6 +50,16 @@ export default {
             ad.title = title;
             ad.shortDescription = shortDescription;
             ad.description = description;
+        },
+        addNews (state,payload){
+            state.newsList.push(payload);
+        },
+        deleteNews(state,id) {
+            state.newsList.forEach(function (item,i,arr) {
+                if(item.id == id){
+                    arr.splice(i,1)
+                }
+            })
         }
 
     },
@@ -65,9 +75,23 @@ export default {
                     data: payload.data,
                 }
                 const ad = await fb.database().ref('news').push(news);
+                commit('addNews',news);
             }catch (e) {
                  commit('shared/setError',e.message,{ root: true });
                  commit('shared/setLoading',false,{ root: true });
+                throw e
+            }
+        },
+        async deleteNews ({commit},id){
+            commit('shared/clearError',null,{root:true});
+            commit('shared/setLoading',true,{root:true});
+            try {
+                await fb.database().ref('news').child(id).remove();
+                commit('deleteNews', id);
+                commit('shared/setLoading',false,{root:true});
+            }catch (e) {
+                commit('shared/setError',e.message,{ root: true });
+                commit('shared/setLoading',false,{ root: true });
                 throw e
             }
         },

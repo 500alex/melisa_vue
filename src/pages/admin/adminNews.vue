@@ -94,24 +94,18 @@
             //     this.resource.get().then(response => response.json())
             //         .then(news => this.newsList = news);
             // },
-            deleteNews (id) {
-                var _this = this;
-                this.resource.delete({id: id}).then(response => {
-                    console.log('Удалили успешно')
-                    _this.updateList();
-                }, response => {
-                    console.log('Не удалось удалить')
-                });
-            },
-        },
-        created() {
-            // this.resource = this.$resource('news{/id}');
-            // this.updateList();
-
-        },
-        mounted () {
-
-                console.log('asdfasdf '+this.newsList);
+            // deleteNews (id) {
+            //     var _this = this;
+            //     this.resource.delete({id: id}).then(response => {
+            //         console.log('Удалили успешно')
+            //         _this.updateList();
+            //     }, response => {
+            //         console.log('Не удалось удалить')
+            //     });
+            // },
+            deleteNews(id){
+                this.$store.dispatch('deleteNews',id);
+            }
 
         }
     }

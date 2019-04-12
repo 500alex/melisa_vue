@@ -73,8 +73,7 @@
                 shortDescription: '',
                 description: '',
                 valid: false,
-                resource: null,
-                curentNews: null,
+                // resource: null,
                 id: this.$route.params['id'],
                 inputRulles: [
                     v => !!v || 'Обязательное поле',
@@ -83,16 +82,18 @@
         },
         methods: {
             saveAlbum () {
+                console.log('Обновляем');
                 var _this = this;
                 if (this.$refs.form.validate()){
                     const album = {
                         title: this.title,
                         shortDescription: this.shortDescription,
                         description: this.description,
-                        data: this.dateNow,
+                        data: this.data,
+                        id: this.id
                     };
-                    //this.resource.update({},news);
-                    this.$http.put('http://localhost:3000/albums/'+ _this.id, album);
+
+                    this.$store.dispatch('updateAlbum',album);
                     this.$router.push('/admin/albums');
                 }
             },
@@ -108,21 +109,22 @@
             },
             dateNow () {
                 return this.moment().format('DD-MM-YYYY');
+            },
+            curentAlbum () {
+                const id = this.id;
+                return this.$store.getters.getAlbumById(id);
             }
         },
         created () {
-            this.resource = this.$resource('albums{/id}')
+            //this.resource = this.$resource('albums{/id}')
 
         },
         mounted () {
-            var _this = this;
-            this.resource.get({id: _this.id}).then(response => response.json())
-                .then(album => {
-                    _this.title = album.title;
-                    _this.shortDescription = album.shortDescription;
-                    _this.description = album.description;
-                });
-
+            if (this.curentAlbum) {
+                this.title = this.curentAlbum.title;
+                this.shortDescription = this.curentAlbum.shortDescription;
+                this.description = this.curentAlbum.description;
+            }
         }
     }
 </script>

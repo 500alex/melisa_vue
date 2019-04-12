@@ -86,15 +86,12 @@
                         description: this.description,
                         data: this.dateNow,
                     }
-                    // this.$http.post('http://localhost:3000/news', news)
-                    //     .then(response =>{
-                    //         return response.json()
-                    //     })
-                    //     .then(data => {
-                    //         console.log(data);
-                    //     })
-                    this.resource.save({},album);
-                    this.$router.push('/admin/albums');
+
+                    this.$store.dispatch('createAlbum', album)
+                        .then(()=>{
+                            this.$router.push('/admin/albums');
+                        })
+                        .catch(()=>{})
                 }
             },
         },

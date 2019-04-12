@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-container>
-            <h3>{{curAlbum.title}}</h3>
+            <h3>{{albumItem.title}}</h3>
             <v-item-group>
                 <v-container grid-list-md>
                     <v-layout wrap>
@@ -30,7 +30,7 @@
             </v-item-group>
 
             <div>
-                {{curAlbum.description}}
+                {{albumItem.description}}
             </div>
 
             <v-layout>
@@ -53,8 +53,6 @@
             return {
                 index: null,
                 id: this.$route.params['id'],
-                curAlbum: undefined,
-                resource: null,
                 imageList: [],
                 images: []
             };
@@ -69,27 +67,12 @@
                 this.$router.push('/albums')
             }
         },
-        created() {
-            var _this = this;
-            this.resource = this.$resource('albums{/id}');
-
-            this.resource.get({id: _this.id}).then(response => response.json())
-                .then(album => {
-                    _this.curAlbum = album;
-
-                });
+        computed: {
+            albumItem () {
+                const id = this.id;
+                return this.$store.getters.getAlbumById(id);
+            }
         },
-        mounted (){
-            var _this = this;
-            console.log(_this.curAlbum);
-           //  var _this = this;
-           //  this.imageList = this.curentAlbum.listPhoto;
-           //
-           //  this.imageList.forEach(function (item) {
-           //      _this.images.push(item.url);
-           // });
-        },
-
     }
 </script>
 

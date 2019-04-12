@@ -40,20 +40,22 @@
         name: "albums",
         data (){
             return {
-                albumsList: null,
-                resource: null,
+                // resource: null,
             }
         },
         computed: {
-            // albums () {
-            //     return this.$store.getters['albums/getAlbums'];
-            // }
+            albumsList () {
+                return this.$store.getters['getAlbums'];
+            },
+            loading () {
+                return this.$store.getters['shared/loading']
+            }
         },
         created() {
-            this.resource = this.$resource('albums');
-
-            this.resource.get().then(response => response.json())
-                .then(albums => this.albumsList = albums);
+            // this.resource = this.$resource('albums');
+            //
+            // this.resource.get().then(response => response.json())
+            //     .then(albums => this.albumsList = albums);
             // this.$http.get('http://localhost:3000/news')
             //     .then(response =>{
             //         return response.json()
