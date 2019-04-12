@@ -53,7 +53,7 @@
             return {
                 index: null,
                 id: this.$route.params['id'],
-                imageList: [],
+                // imageList: [],
                 images: []
             };
         },
@@ -71,8 +71,17 @@
             albumItem () {
                 const id = this.id;
                 return this.$store.getters.getAlbumById(id);
+            },
+            imageList () {
+                return this.$store.getters['getPhoto']
             }
         },
+        mounted () {
+            var _this = this;
+           this.imageList.forEach(function (item) {
+               _this.images.push(item.url);
+           })
+        }
     }
 </script>
 
