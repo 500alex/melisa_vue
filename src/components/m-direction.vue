@@ -9,7 +9,7 @@
                             :key="i"
                             class="lg4 mb-1"
                     >
-                        <v-card class="elevation-1 ma-2 pointer cardDirection" :to="'/trend/'+ trend.url">
+                        <v-card class="elevation-1 ma-2 pointer cardDirection" :to="'/'+ trend.url">
                             <div style="text-align: center;">
                                 <img :src="trend.icon">
                             </div>
