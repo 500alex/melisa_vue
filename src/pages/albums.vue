@@ -15,10 +15,10 @@
                                     slot-scope="{ active, toggle }"
                                     :to="'/album/' + item.id"
                             >
-                                <v-img
-                                        :src="item.previewPhoto"
-                                        aspect-ratio="1.3"
-                                ></v-img>
+                                <!--<v-img-->
+                                        <!--src="/static/images/photo2.jpeg"-->
+                                        <!--aspect-ratio="1.3"-->
+                                <!--&gt;</v-img>-->
                                 <v-card-title primary-title>
                                     <div>
                                         <h3 class="headline mb-0" style="font-size: 18px !important;">{{item.title}}</h3>

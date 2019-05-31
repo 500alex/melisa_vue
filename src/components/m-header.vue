@@ -38,12 +38,14 @@
                                 <v-list-tile-title>Направления</v-list-tile-title>
                             </v-list-tile-content>
                         </v-list-tile>
-                        <v-list >
+                        <v-list>
                             <v-list-tile
-                                    :to="'/trend/'+ trend.url"
-                                    v-for="(trend,i) in pagesList"
-                                    :key="i"
-                            >{{trend.title}}</v-list-tile>
+                                    v-for="(trend,index) in trends"
+                                    :key="index"
+                                    :to="'/' + trend.url"
+                            >
+                                <v-list-tile-title v-text="trend.title"></v-list-tile-title>
+                            </v-list-tile>
                         </v-list>
 
                     </v-list-group>
