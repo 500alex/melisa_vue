@@ -92,17 +92,18 @@
         },
         methods: {
             onSubmit () {
-                if (this.$refs.form.validate()){
-                    const user = {
-                        email: this.email,
-                        password: this.password
-                    };
-                    this.$store.dispatch('admin/registerUser', user)
-                        .then(()=>{
-                            this.$router.push('/');
-                        })
-                        .catch(err=> {})
-                }
+                //Закомичено в целях безопасности
+                // if (this.$refs.form.validate()){
+                //     const user = {
+                //         email: this.email,
+                //         password: this.password
+                //     };
+                //     this.$store.dispatch('admin/registerUser', user)
+                //         .then(()=>{
+                //             this.$router.push('/');
+                //         })
+                //         .catch(err=> {})
+                // }
             }
         }
     }
